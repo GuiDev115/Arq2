@@ -1,0 +1,14 @@
+add R8, R0, R0      # t0 sofrerá o teste massivo
+lcl R4, 30000       # a0 será o ponto de parada
+j 384
+
+# teste massivo de incremento
+address 384         # armazena as instruções abaixo na posição 384
+inc R8              # t0++
+smt R9, R8, R4      # t1 recebe 1 se t0 é maior que a0
+bne R9, R0, 10      # se t0 é maior que a0, encerramos o programa
+j 384
+
+address 10
+halt
+EOF

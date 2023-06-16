@@ -1,0 +1,8 @@
+addi R6, R0, 5      # numero pra elevar ao quadrado
+add R7, R0, R6      # r7 recebe r6
+dec R6              # decrementa o 5 em 1
+add R8, R8, R7      # acumulando os +5
+addi R9, R0, 0      # reg auxiliar
+bne R6, R9, 2
+halt
+EOF

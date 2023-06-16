@@ -1,0 +1,25 @@
+asl R2, R16, R6
+asr R3, R16, R5
+lsl R2, R16, R6
+lsr R3, R16, R5
+lch R8 30000
+lcl R8 14032
+
+
+add R1, R9, R10
+sub R3, R9, R10
+zeros R14
+xor R15, R16, R17
+or R1, R13, R14
+passnota R4, R3
+and R16, R17, R18
+passa R2, R16
+load R20, R7
+store R20, R6
+jal 1234
+jr R31
+beq R7, R12, 14
+bne R6, R12, 76
+j 312
+
+EOF

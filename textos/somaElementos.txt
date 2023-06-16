@@ -1,0 +1,7 @@
+lcl R8, 20	# basta alterar o valor inteiro nessa linha para mudar até qual número somar
+addi R6, R0, R0
+add R6, R6, R8
+dec R8
+bne R8, R0, 2
+halt
+EOF

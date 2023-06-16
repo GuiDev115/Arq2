@@ -1,0 +1,12 @@
+addi R4, R0, 10
+addi R5, R0, 31
+subi R29, R29, 1
+store R29, R4
+inc R29
+store R29, R5
+load R4, R29
+dec R29
+load R5, R29
+addi R29, R29, 2
+halt
+EOF

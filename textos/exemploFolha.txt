@@ -1,0 +1,24 @@
+subi R29, R29, 3
+store R29, R9
+inc R29
+store R29, R8
+inc R29
+store R29, R16
+inc R29
+addi R4, R0, 10
+addi R5, R0, 5
+addi R6, R0, 4
+addi R7, R0, 2
+add R8, R4, R5
+add R9, R6, R7
+add R16, R8, R9
+add R2, R16, R0
+load R16, R29
+dec R29
+load R8, R29
+dec R29
+load R9, R29
+dec R29
+addi R29, R29, 3
+halt
+EOF

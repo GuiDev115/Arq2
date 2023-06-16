@@ -1,0 +1,45 @@
+passa R8 R28        # t0 = gp
+passa R9 R28        # t1 = gp
+passa R10 R28       # t2 = gp
+passa R11 R28       # t3 = gp
+passa R16 R28       # s0 = gp
+passa R17 R28       # s1 = gp
+passa R18 R28       # s2 = gp
+passa R19 R28       # s3 = gp
+j 300
+
+# Teste de overflow: descomentar a seguir
+#address 200
+#lch R3, 30000       # R3 = 1.966.095.000
+#lcl R3, 15000
+#lch R4, 30000       # R4 = 1.966.080.000
+#lcl R4, 99999      # teste de range de 16 bits
+#add R11, R3, R4
+#halt
+
+# teste massivo para add
+address 300
+passa R12 R0
+addi R13 R0 10      # loop será executado 10 vezes
+slt R14 R12 R13
+bne R14 R0 10
+j 400
+
+address 10
+add R8 R8 R9
+inc R12
+j 302
+
+# teste massivo para sub
+address 400
+passa R12 R0
+addi R13 R0 10      # loop será executado 10 vezes
+slt R14 R12 R13
+bne R14 R0 20
+halt
+
+address 20
+sub R9 R9 R10
+inc R12
+j 402
+EOF
