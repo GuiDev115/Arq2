@@ -154,7 +154,7 @@ void Processador::executar()
             delete wbStage;
 
             cout << endl
-                 << " ----------------------------- Instrucao Finalizada --------------------------------------------" << endl
+                 << " ------------------------------ Instrucao Finalizada --------------------------------------------" << endl
                  << endl;
 
             cout << "Número de clocks " << qtdClocks << endl;

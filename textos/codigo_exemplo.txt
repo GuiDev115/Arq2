@@ -1,0 +1,25 @@
+lch R3, 0         
+lcl R3, 231
+lch R4, 0          
+lcl R4, 300
+lch R6, 0          
+lcl R6, 2
+add R5, R3, R4
+zeros R5 
+xor R5, R3, R4
+or R5, R3, R4
+and R5, R3, R4
+sub R11, R3, R4
+asl R5, R11, R6
+asr R5, R11, R6
+lsl R5, R11, R6
+lsr R5, R11, R6
+passa R5, R3
+passnota R5, R3
+load R5, R3
+store R3, R4
+load R5, R3
+jal 100         
+add R5, R3, R9
+j 300
+halt

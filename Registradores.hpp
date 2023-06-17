@@ -309,38 +309,39 @@ void Registradores::setRegistrador(bitset<32> dadoParaEscrever, bitset<8> numero
 void Registradores::depuracao()
 {
 
-	cout << "Conteúdos dos registradores:" << endl;
-	cout << "\tzero    : " << vetorReg[0] << endl;
-	cout << "\tat (1)  : " << vetorReg[1] << endl;
-	cout << "\tv0 (2)  : " << vetorReg[2] << endl;
-	cout << "\tv1 (3)  : " << vetorReg[3] << endl;
-	cout << "\ta0 (4)  : " << vetorReg[4] << endl;
-	cout << "\ta1 (5)  : " << vetorReg[5] << endl;
-	cout << "\ta2 (6)  : " << vetorReg[6] << endl;
-	cout << "\ta3 (7)  : " << vetorReg[7] << endl;
-	cout << "\tt0 (8)  : " << vetorReg[8] << endl;
-	cout << "\tt1 (9)  : " << vetorReg[9] << endl;
-	cout << "\tt2 (10) : " << vetorReg[10] << endl;
-	cout << "\tt3 (11) : " << vetorReg[11] << endl;
-	cout << "\tt4 (12) : " << vetorReg[12] << endl;
-	cout << "\tt5 (13) : " << vetorReg[13] << endl;
-	cout << "\tt6 (14) : " << vetorReg[14] << endl;
-	cout << "\tt7 (15) : " << vetorReg[15] << endl;
-	cout << "\ts0 (16) : " << vetorReg[16] << endl;
-	cout << "\ts1 (17) : " << vetorReg[17] << endl;
-	cout << "\ts2 (18) : " << vetorReg[18] << endl;
-	cout << "\ts3 (19) : " << vetorReg[19] << endl;
-	cout << "\ts4 (20) : " << vetorReg[20] << endl;
-	cout << "\ts5 (21) : " << vetorReg[21] << endl;
-	cout << "\ts6 (22) : " << vetorReg[22] << endl;
-	cout << "\ts7 (23) : " << vetorReg[23] << endl;
-	cout << "\tt8 (24) : " << vetorReg[24] << endl;
-	cout << "\tt9 (25) : " << vetorReg[25] << endl;
-	cout << "\tk0 (26) : " << vetorReg[26] << endl;
-	cout << "\tk1 (27) : " << vetorReg[27] << endl;
-	cout << "\tgp (28) : " << vetorReg[28] << endl;
-	cout << "\tsp (29) : " << vetorReg[29] << endl;
-	cout << "\tfp (30) : " << vetorReg[30] << endl;
-	cout << "\tra (31) : " << vetorReg[31] << endl
+	cout << endl
+		 << "Registradores um a um:" << endl;
+	cout << "zero    : " << vetorReg[0] << endl
+		 << "at (1)  : " << vetorReg[1] << endl
+		 << "v0 (2)  : " << vetorReg[2] << endl
+		 << "v1 (3)  : " << vetorReg[3] << endl
+		 << "a0 (4)  : " << vetorReg[4] << endl
+		 << "a1 (5)  : " << vetorReg[5] << endl
+		 << "a2 (6)  : " << vetorReg[6] << endl
+		 << "a3 (7)  : " << vetorReg[7] << endl
+		 << "t0 (8)  : " << vetorReg[8] << endl
+		 << "t1 (9)  : " << vetorReg[9] << endl
+		 << "t2 (10) : " << vetorReg[10] << endl
+		 << "t3 (11) : " << vetorReg[11] << endl
+		 << "t4 (12) : " << vetorReg[12] << endl
+		 << "t5 (13) : " << vetorReg[13] << endl
+		 << "t6 (14) : " << vetorReg[14] << endl
+		 << "t7 (15) : " << vetorReg[15] << endl
+		 << "s0 (16) : " << vetorReg[16] << endl
+		 << "s1 (17) : " << vetorReg[17] << endl
+		 << "s2 (18) : " << vetorReg[18] << endl
+		 << "s3 (19) : " << vetorReg[19] << endl
+		 << "s4 (20) : " << vetorReg[20] << endl
+		 << "s5 (21) : " << vetorReg[21] << endl
+		 << "s6 (22) : " << vetorReg[22] << endl
+		 << "s7 (23) : " << vetorReg[23] << endl
+		 << "t8 (24) : " << vetorReg[24] << endl
+		 << "t9 (25) : " << vetorReg[25] << endl
+		 << "k0 (26) : " << vetorReg[26] << endl
+		 << "k1 (27) : " << vetorReg[27] << endl
+		 << "gp (28) : " << vetorReg[28] << endl
+		 << "sp (29) : " << vetorReg[29] << endl
+		 << "fp (30) : " << vetorReg[30] << endl
+		 << "ra (31) : " << vetorReg[31] << endl
 		 << endl;
 }

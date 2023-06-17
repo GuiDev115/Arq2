@@ -3,7 +3,7 @@
 class Id
 {
 
-private:
+public:
     bitset<8> ra;
     bitset<8> rb;
     bitset<8> rc;
@@ -25,20 +25,52 @@ private:
     void decodificarInstrucao(bitset<32> instrucaoBinaria);
     bool verificarRegistrador(string textoBin);
 
-public:
     Id(bitset<32> instrucaoBinaria, Registradores *regs);
     ~Id();
-    bitset<8> getOpcode() { return opcode; };
-    bitset<8> getRa() { return ra; };
-    bitset<32> getRaValue() { return raValue; };
-    bitset<8> getRb() { return rb; };
-    bitset<32> getRbValue() { return rbValue; };
-    bitset<8> getRc() { return rc; };
-    bitset<32> getRcValue() { return rcValue; };
-    bitset<16> getbit16() { return bit16; };
-    bitset<24> getbit24() { return bit24; };
-    bitset<8> getbit8() { return bit8; };
-    Controle *getControle() { return sinaisControle; };
+    bitset<8> getOpcode()
+    {
+        return opcode;
+    };
+    bitset<8> getRa()
+    {
+        return ra;
+    };
+    bitset<32> getRaValue()
+    {
+        return raValue;
+    };
+    bitset<8> getRb()
+    {
+        return rb;
+    };
+    bitset<32> getRbValue()
+    {
+        return rbValue;
+    };
+    bitset<8> getRc()
+    {
+        return rc;
+    };
+    bitset<32> getRcValue()
+    {
+        return rcValue;
+    };
+    bitset<16> getbit16()
+    {
+        return bit16;
+    };
+    bitset<24> getbit24()
+    {
+        return bit24;
+    };
+    bitset<8> getbit8()
+    {
+        return bit8;
+    };
+    Controle *getControle()
+    {
+        return sinaisControle;
+    };
     void depuracao();
 };
 
@@ -130,9 +162,7 @@ bool Id::verificarRegistrador(string textoBin)
     }
 
     if (resultado >= 0 and resultado <= 31)
-    {
         return true;
-    }
 
     return false;
 }
@@ -140,14 +170,17 @@ bool Id::verificarRegistrador(string textoBin)
 void Id::depuracao()
 {
 
-    cout << "Valores das variáveis do Id: " << endl;
-    cout << "\tOpcode: " << opcode << endl;
-    cout << "\tRa (endereço): " << ra.to_ulong() << endl;
-    cout << "\tRb (endereço): " << rb.to_ulong() << endl;
-    cout << "\tRc (endereço): " << rc.to_ulong() << endl;
-    cout << "\tbit8 : " << bit8 << endl;
-    cout << "\tbit16: " << bit16 << endl;
-    cout << "\tbit24: " << bit24 << endl
+    cout << "Ra (endereço): " << ra.to_ulong() << endl
+         << "Rb (endereço): " << rb.to_ulong() << endl
+         << "Rc (endereço): " << rc.to_ulong() << endl
+         << "Valores das variáveis do Id: " << endl
+         << endl
+         << "Opcode: " << opcode << endl
+         << endl
+
+         << "bit8 : " << bit8 << endl
+         << "bit16: " << bit16 << endl
+         << "bit24: " << bit24 << endl
          << endl;
 
     sinaisControle->depuracao_controle();

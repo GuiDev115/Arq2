@@ -2,10 +2,6 @@ asl R2, R16, R6
 asr R3, R16, R5
 lsl R2, R16, R6
 lsr R3, R16, R5
-lch R8 30000
-lcl R8 14032
-
-
 add R1, R9, R10
 sub R3, R9, R10
 zeros R14
@@ -22,4 +18,5 @@ beq R7, R12, 14
 bne R6, R12, 76
 j 312
 
+halt
 EOF

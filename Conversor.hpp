@@ -36,10 +36,10 @@ void Conversor::leituraArquivoEntrada()
 
     string nome_arquivo_entrada;
 
-    cout << "Digite o nome do arquivo de entrada de instruções (sem extensão): ";
+    cout << "Digite o nome do arquivo de texto: ";
     cin >> nome_arquivo_entrada;
 
-    ifstream arquivo_entrada("textos/" + nome_arquivo_entrada + ".txt");
+    ifstream arquivo_entrada("textos/" + nome_arquivo_entrada);
 
     if (arquivo_entrada)
     {
@@ -52,10 +52,8 @@ void Conversor::leituraArquivoEntrada()
         do
         {
 
-            // leitura uma linha/instrucao
             getline(arquivo_entrada, instrucaoAtual);
 
-            // retorna a linha de instrucao particionada em um vector
             vector<string> *instrucaoAtualSeparada = separarString(instrucaoAtual, " ");
 
             if (instrucaoAtualSeparada->empty())
@@ -63,8 +61,6 @@ void Conversor::leituraArquivoEntrada()
                 continue;
             }
 
-            // a primeira instrucao deve ser obrigatoriamente um address
-            // caso não for, a posição da memória texto começa em 0
             if (instrucaoAtualSeparada->at(0) == "address")
             {
 
@@ -149,7 +145,6 @@ vector<string> *Conversor::separarString(string str, string delimiter)
     vector<string> *splitStr = new vector<string>;
     string aux;
 
-    // separa a string por espaço e adiciona no vector
     while (end != -1)
     {
 
@@ -161,7 +156,6 @@ vector<string> *Conversor::separarString(string str, string delimiter)
     aux = str.substr(start, end - start);
     splitStr->push_back(aux);
 
-    // remove o espaço/null do vector na última posição, se houver
     if (splitStr->back() == "" or splitStr->back() == " ")
     {
 
@@ -174,91 +168,116 @@ vector<string> *Conversor::separarString(string str, string delimiter)
 string Conversor::retornarInstrucaoEmString(vector<string> *vect)
 {
 
-    // Instrucoes do UFLA-RISC (23)
     if (vect->at(0) == "address")
+    {
         return (conversorIntParaBinario8(0) + conversorIntParaBinario24(stoi(vect->at(1))));
-
+    }
     else if (vect->at(0) == "add")
+    {
         return (conversorIntParaBinario8(1) + conversorIntParaBinario8(stoi(vect->at(2))) + conversorIntParaBinario8(stoi(vect->at(3))) + conversorIntParaBinario8(stoi(vect->at(1))));
-
+    }
     else if (vect->at(0) == "sub")
+    {
         return (conversorIntParaBinario8(2) + conversorIntParaBinario8(stoi(vect->at(2))) + conversorIntParaBinario8(stoi(vect->at(3))) + conversorIntParaBinario8(stoi(vect->at(1))));
-
+    }
     else if (vect->at(0) == "zeros")
+    {
         return (conversorIntParaBinario8(3) + conversorIntParaBinario8(0) + conversorIntParaBinario8(0) + conversorIntParaBinario8(stoi(vect->at(1))));
-
+    }
     else if (vect->at(0) == "xor")
+    {
         return (conversorIntParaBinario8(4) + conversorIntParaBinario8(stoi(vect->at(2))) + conversorIntParaBinario8(stoi(vect->at(3))) + conversorIntParaBinario8(stoi(vect->at(1))));
-
+    }
     else if (vect->at(0) == "or")
+    {
         return (conversorIntParaBinario8(5) + conversorIntParaBinario8(stoi(vect->at(2))) + conversorIntParaBinario8(stoi(vect->at(3))) + conversorIntParaBinario8(stoi(vect->at(1))));
-
+    }
     else if (vect->at(0) == "passnota")
+    {
         return (conversorIntParaBinario8(6) + conversorIntParaBinario8(stoi(vect->at(2))) + conversorIntParaBinario8(0) + conversorIntParaBinario8(stoi(vect->at(1))));
-
+    }
     else if (vect->at(0) == "and")
+    {
         return (conversorIntParaBinario8(7) + conversorIntParaBinario8(stoi(vect->at(2))) + conversorIntParaBinario8(stoi(vect->at(3))) + conversorIntParaBinario8(stoi(vect->at(1))));
-
+    }
     else if (vect->at(0) == "asl")
+    {
         return (conversorIntParaBinario8(8) + conversorIntParaBinario8(stoi(vect->at(2))) + conversorIntParaBinario8(stoi(vect->at(3))) + conversorIntParaBinario8(stoi(vect->at(1))));
-
+    }
     else if (vect->at(0) == "asr")
+    {
         return (conversorIntParaBinario8(9) + conversorIntParaBinario8(stoi(vect->at(2))) + conversorIntParaBinario8(stoi(vect->at(3))) + conversorIntParaBinario8(stoi(vect->at(1))));
-
+    }
     else if (vect->at(0) == "lsl")
+    {
         return (conversorIntParaBinario8(10) + conversorIntParaBinario8(stoi(vect->at(2))) + conversorIntParaBinario8(stoi(vect->at(3))) + conversorIntParaBinario8(stoi(vect->at(1))));
-
+    }
     else if (vect->at(0) == "lsr")
+    {
         return (conversorIntParaBinario8(11) + conversorIntParaBinario8(stoi(vect->at(2))) + conversorIntParaBinario8(stoi(vect->at(3))) + conversorIntParaBinario8(stoi(vect->at(1))));
-
+    }
     else if (vect->at(0) == "passa")
+    {
         return (conversorIntParaBinario8(12) + conversorIntParaBinario8(stoi(vect->at(2))) + conversorIntParaBinario8(0) + conversorIntParaBinario8(stoi(vect->at(1))));
-
+    }
     else if (vect->at(0) == "lch")
+    {
         return (conversorIntParaBinario8(13) + conversorIntParaBinario16(stoi(vect->at(2))) + conversorIntParaBinario8(stoi(vect->at(1))));
-
+    }
     else if (vect->at(0) == "lcl")
+    {
         return (conversorIntParaBinario8(14) + conversorIntParaBinario16(stoi(vect->at(2))) + conversorIntParaBinario8(stoi(vect->at(1))));
-
+    }
     else if (vect->at(0) == "load")
+    {
         return (conversorIntParaBinario8(15) + conversorIntParaBinario8(stoi(vect->at(2))) + conversorIntParaBinario8(0) + conversorIntParaBinario8(stoi(vect->at(1))));
-
+    }
     else if (vect->at(0) == "store")
+    {
         return (conversorIntParaBinario8(16) + conversorIntParaBinario8(stoi(vect->at(2))) + conversorIntParaBinario8(0) + conversorIntParaBinario8(stoi(vect->at(1))));
-
+    }
     else if (vect->at(0) == "jal")
+    {
         return (conversorIntParaBinario8(17) + conversorIntParaBinario24(stoi(vect->at(1))));
-
+    }
     else if (vect->at(0) == "jr")
-
+    {
         return (conversorIntParaBinario8(18) + conversorIntParaBinario8(0) + conversorIntParaBinario8(0) + conversorIntParaBinario8(stoi(vect->at(1))));
-
+    }
     else if (vect->at(0) == "beq")
-
+    {
         return (conversorIntParaBinario8(19) + conversorIntParaBinario8(stoi(vect->at(1))) + conversorIntParaBinario8(stoi(vect->at(2))) + conversorIntParaBinario8(stoi(vect->at(3))));
-
+    }
     else if (vect->at(0) == "bne")
+    {
         return (conversorIntParaBinario8(20) + conversorIntParaBinario8(stoi(vect->at(1))) + conversorIntParaBinario8(stoi(vect->at(2))) + conversorIntParaBinario8(stoi(vect->at(3))));
-
+    }
     else if (vect->at(0) == "j")
+    {
         return (conversorIntParaBinario8(21) + conversorIntParaBinario24(stoi(vect->at(1))));
-
-    // --------------------------------------------------- Instrucoes a mais do grupo -------------------------------------------------
-
+    }
+    else if (vect->at(0) == "halt")
+    {
+        return "11111111111111111111111111111111";
+    }
     else if (vect->at(0) == "addi")
-        return (conversorIntParaBinario8(22) + conversorIntParaBinario8(stoi(vect->at(1))) + conversorIntParaBinario8(stoi(vect->at(2))) + conversorIntParaBinario8(stoi(vect->at(3))));
-
+    {
+        return (conversorIntParaBinario8(27) + conversorIntParaBinario8(stoi(vect->at(1))) + conversorIntParaBinario8(stoi(vect->at(2))) + conversorIntParaBinario8(stoi(vect->at(3))));
+    }
     else if (vect->at(0) == "subi")
-        return (conversorIntParaBinario8(23) + conversorIntParaBinario8(stoi(vect->at(1))) + conversorIntParaBinario8(stoi(vect->at(2))) + conversorIntParaBinario8(stoi(vect->at(3))));
-
+    {
+        return (conversorIntParaBinario8(28) + conversorIntParaBinario8(stoi(vect->at(1))) + conversorIntParaBinario8(stoi(vect->at(2))) + conversorIntParaBinario8(stoi(vect->at(3))));
+    }
     else if (vect->at(0) == "nand")
-        return (conversorIntParaBinario8(24) + conversorIntParaBinario8(stoi(vect->at(2))) + conversorIntParaBinario8(stoi(vect->at(3))) + conversorIntParaBinario8(stoi(vect->at(1))));
-
+    {
+        return (conversorIntParaBinario8(29) + conversorIntParaBinario8(stoi(vect->at(2))) + conversorIntParaBinario8(stoi(vect->at(3))) + conversorIntParaBinario8(stoi(vect->at(1))));
+    }
     else
-        return (conversorIntParaBinario8(25) + conversorIntParaBinario8(stoi(vect->at(2))) + conversorIntParaBinario8(stoi(vect->at(3))) + conversorIntParaBinario8(stoi(vect->at(1))));
+    {
+        return (conversorIntParaBinario8(30) + conversorIntParaBinario8(stoi(vect->at(2))) + conversorIntParaBinario8(stoi(vect->at(3))) + conversorIntParaBinario8(stoi(vect->at(1))));
+    }
 }
 
-// converte o numero inteiro para binario (8 casas)
 string Conversor::conversorIntParaBinario8(int valor)
 {
 
@@ -267,7 +286,6 @@ string Conversor::conversorIntParaBinario8(int valor)
     return str;
 }
 
-// converte o numero inteiro para binario (16 casas)
 string Conversor::conversorIntParaBinario16(int valor)
 {
 
@@ -276,7 +294,6 @@ string Conversor::conversorIntParaBinario16(int valor)
     return str;
 }
 
-// converte o numero inteiro para binario (24 casas)
 string Conversor::conversorIntParaBinario24(int valor)
 {
 

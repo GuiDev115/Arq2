@@ -26,11 +26,23 @@ public:
 	void instrucoesDeDesvio();
 	void instrucoesDeMemoria();
 	void mostrarFlags();
-	bool getOverflow() { return overflow; };
-	bitset<32> getResultadoRa() { return ra; };
-	bitset<32> getResultadoRc() { return rc; };
+	bool getOverflow()
+	{
+		return overflow;
+	};
+	bitset<32> getResultadoRa()
+	{
+		return ra;
+	};
+	bitset<32> getResultadoRc()
+	{
+		return rc;
+	};
 	bitset<32> getRetornoFuncao() { return r31; };
-	bool getHalt() { return continuar; };
+	bool getHalt()
+	{
+		return continuar;
+	};
 };
 
 Alu::Alu(Registradores *regs, If *ifStage, Id *idStage, Controle *controle, Memoria *memoria)
