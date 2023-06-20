@@ -673,7 +673,7 @@ void Alu::verificaOverflow(bitset<32> ra, bitset<32> rb, bitset<32> result, stri
 
 	if (overflow)
 	{
-		throw(12);
+		throw("Overflow");
 	}
 }
 
