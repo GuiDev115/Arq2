@@ -3,7 +3,7 @@ class Alu
 
 private:
 	bitset<32> PC, bit_8, bit16, bit_24, rc, ra, rb, r31, num, zero;
-	bitset<16> novoPC, novoRc;
+	bitset<16> novoPC, newRc;
 	Registradores *regs;
 	If *ifStage;
 	Id *idStage;
@@ -347,7 +347,7 @@ void Alu::instrucoesAritmeticas()
 		{
 			converteBits(3);
 
-			memoria->armazenarDado(ra, novoRc);
+			memoria->armazenarDado(ra, newRc);
 		}
 	}
 
@@ -426,7 +426,7 @@ void Alu::instrucoesDeMemoria()
 
 			converteBits(3);
 
-			memoria->armazenarDado(ra, novoRc);
+			memoria->armazenarDado(ra, newRc);
 		}
 	}
 }
@@ -505,7 +505,7 @@ void Alu::converteBits(int operacao)
 
 		for (int i = 0; i < 16; i++)
 		{
-			novoRc[i] = rc[i];
+			newRc[i] = rc[i];
 		}
 	}
 }
@@ -630,12 +630,13 @@ void Alu::verificaNegativo(bitset<32> rc)
 
 void Alu::mostrarFlags()
 {
-
+	cout << "\n\n"
+		 << "/--------------------------------------------------------------------------------/\n";
 	cout << "Flags da ALU e endereco de desvio: " << endl;
-	cout << "\tFlag de Zero: " << ALUzero << endl;
-	cout << "\tCarry: " << carry << endl;
-	cout << "\tNegativo: " << neg << endl;
-	cout << "\tSinal de Overflow: " << overflow << endl;
-	cout << "\tCalculo do endereco de desvio (valor de resultado): " << novoPC << endl;
-	cout << "\tValor do rc: " << rc << endl;
+	cout << "Flag de Zero: " << ALUzero << endl;
+	cout << "Carry: " << carry << endl;
+	cout << "Negativo: " << neg << endl;
+	cout << "Sinal de Overflow: " << overflow << endl;
+	cout << "Calculo do endereco de desvio (valor de resultado): " << novoPC << endl;
+	cout << "Valor do rc: " << rc << endl;
 }
