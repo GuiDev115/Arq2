@@ -281,9 +281,9 @@ string Conversor::retornarInstrucaoEmString(vector<string> *vect)
     {
         return (conversorIntParaBinario8(24) + conversorIntParaBinario8(stoi(vect->at(2))) + conversorIntParaBinario8(stoi(vect->at(3))) + conversorIntParaBinario8(stoi(vect->at(1))));
     }
-    else if (vect->at(0) == "inc")
+    else if (vect->at(0) == "bge")
     {
-        return (conversorIntParaBinario8(25) + conversorIntParaBinario8(0) + conversorIntParaBinario8(0) + conversorIntParaBinario8(stoi(vect->at(1))));
+        return (conversorIntParaBinario8(25) + conversorIntParaBinario8(stoi(vect->at(1))) + conversorIntParaBinario8(stoi(vect->at(2))) + conversorIntParaBinario8(stoi(vect->at(3))));
     }
     else if (vect->at(0) == "dec")
     {

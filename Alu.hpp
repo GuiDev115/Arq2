@@ -298,16 +298,12 @@ void Alu::instrucoesAritmeticas()
 		}
 	}
 
-	// Inc
-	else if (controle->getAluControl() == "inc")
+	else if (controle->getAluControl() == "bge")
 	{
-
-		rc = calculaBits(rc, 1, "adicao");
-		verificaNegativo(rc);
-		zero = rc;
+		if (ra.to_ulong() >= rb.to_ulong())
+			PC = bit_8.to_ulong();
 	}
 
-	// Dec
 	else if (controle->getAluControl() == "dec")
 	{
 
@@ -316,7 +312,6 @@ void Alu::instrucoesAritmeticas()
 		zero = rc;
 	}
 
-	// Addi
 	else if (controle->getAluControl() == "addi")
 	{
 		rc = calculaBits(rb, bit_8, "adicao");
@@ -324,7 +319,6 @@ void Alu::instrucoesAritmeticas()
 		zero = rc;
 	}
 
-	// Subi
 	else if (controle->getAluControl() == "subi")
 	{
 		rc = calculaBits(rb, bit_8, "subtracao");
@@ -332,7 +326,6 @@ void Alu::instrucoesAritmeticas()
 		zero = rc;
 	}
 
-	// Nand
 	else if (controle->getAluControl() == "nand")
 	{
 

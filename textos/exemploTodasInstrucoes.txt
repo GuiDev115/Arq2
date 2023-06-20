@@ -18,7 +18,7 @@ beq R8, R13, 12
 xori R16, R17, R18
 slti R8, R2, 122
 smt R8, R2, R0
-inc R8
+bge R8, R13, 12
 dec R8
 addi R8, R0, 123
 subi R29, R29, 4

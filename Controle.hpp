@@ -416,16 +416,16 @@ void Controle ::alterarSinais(string opcode)
         Jump = 0;
     }
     else if (opcode == "00011001")
-    { // inc b.25 (increment)
+    {
         reg_dst = 0;
-        reg_write = 1;
-        AluControl = "inc";
+        reg_write = 0;
+        AluControl = "bge";
         mem_read = 0;
         Memwrite = 0;
         Aluop = 0;
         Alusrc = 0;
         MemtoReg = 0;
-        Branch = 0;
+        Branch = 1;
         Jump = 0;
     }
     else if (opcode == "00011010")
@@ -434,10 +434,10 @@ void Controle ::alterarSinais(string opcode)
         reg_write = 1;
         AluControl = "dec";
         mem_read = 0;
-        Memwrite = 0;
+        Memwrite = 1;
         Aluop = 0;
-        Alusrc = 0;
-        MemtoReg = 0;
+        Alusrc = 1;
+        MemtoReg = 1;
         Branch = 0;
         Jump = 0;
     }
