@@ -244,26 +244,9 @@ void Alu::instrucoesAritmeticas()
 		zero = rc;
 	}
 
-	// Slt
-	else if (controle->getAluControl() == "slt")
+	else if (controle->getAluControl() == "xori")
 	{
-
-		bool result = false;
-		rc = result;
-
-		for (int i = 31; i >= 0 && !result; i--)
-		{
-			if (ra[i] < rb[i])
-			{
-				result = 1;
-				rc = result;
-			}
-			else if (ra[i] > rb[i])
-			{
-				break;
-			}
-		}
-
+		rc = rb | bit_8;
 		// nao causa overflow
 		verificaNegativo(rc);
 		zero = rc;
@@ -389,20 +372,15 @@ void Alu::instrucoesAritmeticas()
 		{
 
 			if (!comeco and ra[i] == 0 and rb[i] == 0)
-			{
 				continue;
-			}
+
 			else
 			{
 				comeco = true;
 				if ((ra[i] | rb[i]) == 1)
-				{
 					rc[i] = 0;
-				}
 				else
-				{
 					rc[i] = 1;
-				}
 			}
 		}
 		// nao causa overflow

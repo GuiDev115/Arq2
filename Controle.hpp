@@ -380,7 +380,7 @@ void Controle ::alterarSinais(string opcode)
     { // set less than b.22
         reg_dst = 0;
         reg_write = 1;
-        AluControl = "slt";
+        AluControl = "xori";
         mem_read = 0;
         Memwrite = 0;
         Aluop = 10;

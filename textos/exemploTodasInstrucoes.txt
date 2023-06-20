@@ -15,7 +15,7 @@ lcl R8 14032
 load R20, R7
 store R20, R6
 beq R8, R13, 12
-slt R8, R2, R8
+xori R16, R17, R18
 slti R8, R2, 122
 smt R8, R2, R0
 inc R8
