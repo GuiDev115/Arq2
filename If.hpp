@@ -49,7 +49,7 @@ void If::incrementaPC()
 
     PC = sum;
 
-    cout << "\nValor do PC: . . . . . " << PC << endl;
+    cout << "\nValor do PC: " << PC << endl;
 }
 
 bitset<16> If::getPc()

@@ -2,7 +2,7 @@ class Alu
 {
 
 private:
-	bitset<32> PC, bit8, bit16, bit24, rc, ra, rb, r31, num, zero;
+	bitset<32> PC, bit_8, bit16, bit_24, rc, ra, rb, r31, num, zero;
 	bitset<16> novoPC, novoRc;
 	Registradores *regs;
 	If *ifStage;
@@ -77,7 +77,7 @@ void Alu::instrucoesAritmeticas()
 	bool aux = 0;
 
 	// SOMA INTEIRA
-	if (controle->getAluctrl() == "add")
+	if (controle->getAluControl() == "add")
 	{
 		rc = calculaBits(ra, rb, "adicao");
 		verificaNegativo(rc);
@@ -85,7 +85,7 @@ void Alu::instrucoesAritmeticas()
 	}
 
 	// SUBTRAÇÃO INTEIRA
-	else if (controle->getAluctrl() == "sub")
+	else if (controle->getAluControl() == "sub")
 	{
 		rc = calculaBits(ra, rb, "subtracao");
 		verificaNegativo(rc);
@@ -93,7 +93,7 @@ void Alu::instrucoesAritmeticas()
 	}
 
 	// ZERA
-	else if (controle->getAluctrl() == "zeros")
+	else if (controle->getAluControl() == "zeros")
 	{
 		rc = 0;
 		// nao causa overflow
@@ -102,7 +102,7 @@ void Alu::instrucoesAritmeticas()
 	}
 
 	// XOR LÓGICO
-	else if (controle->getAluctrl() == "xor")
+	else if (controle->getAluControl() == "xor")
 	{
 		rc = ra ^ rb;
 		// nao causa overflow
@@ -111,7 +111,7 @@ void Alu::instrucoesAritmeticas()
 	}
 
 	// OR LÓGICO
-	else if (controle->getAluctrl() == "or")
+	else if (controle->getAluControl() == "or")
 	{
 		rc = ra | rb;
 		// nao causa overflow
@@ -120,7 +120,7 @@ void Alu::instrucoesAritmeticas()
 	}
 
 	// NOT
-	else if (controle->getAluctrl() == "passnota")
+	else if (controle->getAluControl() == "passnota")
 	{
 		rc = ~ra;
 		// nao causa overflow
@@ -129,7 +129,7 @@ void Alu::instrucoesAritmeticas()
 	}
 
 	// AND LÓGICO
-	else if (controle->getAluctrl() == "and")
+	else if (controle->getAluControl() == "and")
 	{
 		rc = ra & rb;
 		// nao causa overflow
@@ -138,7 +138,7 @@ void Alu::instrucoesAritmeticas()
 	}
 
 	// SHIFT ARITMÉTICO PARA A ESQUERDA
-	else if (controle->getAluctrl() == "asl")
+	else if (controle->getAluControl() == "asl")
 	{
 		aux = ra[31];
 		rc = ra << rb.to_ulong();
@@ -149,7 +149,7 @@ void Alu::instrucoesAritmeticas()
 	}
 
 	// SHIFT ARITMÉTICO PARA A DIREITA
-	else if (controle->getAluctrl() == "asr")
+	else if (controle->getAluControl() == "asr")
 	{
 		aux = ra[31];
 		rc = ra >> rb.to_ulong();
@@ -160,7 +160,7 @@ void Alu::instrucoesAritmeticas()
 	}
 
 	// SHIFT LÓGICO PARA A ESQUERDA
-	else if (controle->getAluctrl() == "lsl")
+	else if (controle->getAluControl() == "lsl")
 	{
 		rc = ra << rb.to_ulong();
 		rc[31] = aux;
@@ -170,7 +170,7 @@ void Alu::instrucoesAritmeticas()
 	}
 
 	// SHIFT LÓGICO PARA A DIREITA
-	else if (controle->getAluctrl() == "lsr")
+	else if (controle->getAluControl() == "lsr")
 	{
 		rc = ra >> rb.to_ulong();
 		rc[31] = aux;
@@ -180,7 +180,7 @@ void Alu::instrucoesAritmeticas()
 	}
 
 	// COPIA
-	else if (controle->getAluctrl() == "passa")
+	else if (controle->getAluControl() == "passa")
 	{
 		rc = ra;
 		// nao causa overflow
@@ -189,7 +189,7 @@ void Alu::instrucoesAritmeticas()
 	}
 
 	// CARREGA CONSTANTE NOS 2 BYTES MAIS SIGNIFICATIVOS
-	else if (controle->getAluctrl() == "lch")
+	else if (controle->getAluControl() == "lch")
 	{
 		for (int i = 15; i >= 0; i--)
 		{
@@ -217,7 +217,7 @@ void Alu::instrucoesAritmeticas()
 	}
 
 	// CARREGA CONSTANTE NOS 2 BYTES MENOS SIGNIFICATIVOS
-	else if (controle->getAluctrl() == "lcl")
+	else if (controle->getAluControl() == "lcl")
 	{
 		bitset<32> aux = num << 16;
 		for (int i = 31; i >= 16; i--)
@@ -245,7 +245,7 @@ void Alu::instrucoesAritmeticas()
 	}
 
 	// Slt
-	else if (controle->getAluctrl() == "slt")
+	else if (controle->getAluControl() == "slt")
 	{
 
 		bool result = false;
@@ -270,7 +270,7 @@ void Alu::instrucoesAritmeticas()
 	}
 
 	// Slti
-	else if (controle->getAluctrl() == "slti")
+	else if (controle->getAluControl() == "slti")
 	{
 
 		bool result = false;
@@ -278,12 +278,12 @@ void Alu::instrucoesAritmeticas()
 
 		for (int i = 31; i >= 0 && !result; i--)
 		{
-			if (rb[i] < bit8[i])
+			if (rb[i] < bit_8[i])
 			{
 				result = 1;
 				rc = result;
 			}
-			else if (rb[i] > bit8[i])
+			else if (rb[i] > bit_8[i])
 			{
 				break;
 			}
@@ -295,7 +295,7 @@ void Alu::instrucoesAritmeticas()
 	}
 
 	// Smt
-	else if (controle->getAluctrl() == "smt")
+	else if (controle->getAluControl() == "smt")
 	{
 
 		bool result = false;
@@ -316,7 +316,7 @@ void Alu::instrucoesAritmeticas()
 	}
 
 	// Inc
-	else if (controle->getAluctrl() == "inc")
+	else if (controle->getAluControl() == "inc")
 	{
 
 		rc = calculaBits(rc, 1, "adicao");
@@ -325,7 +325,7 @@ void Alu::instrucoesAritmeticas()
 	}
 
 	// Dec
-	else if (controle->getAluctrl() == "dec")
+	else if (controle->getAluControl() == "dec")
 	{
 
 		rc = calculaBits(rc, 1, "subtracao");
@@ -334,23 +334,23 @@ void Alu::instrucoesAritmeticas()
 	}
 
 	// Addi
-	else if (controle->getAluctrl() == "addi")
+	else if (controle->getAluControl() == "addi")
 	{
-		rc = calculaBits(rb, bit8, "adicao");
+		rc = calculaBits(rb, bit_8, "adicao");
 		verificaNegativo(rc);
 		zero = rc;
 	}
 
 	// Subi
-	else if (controle->getAluctrl() == "subi")
+	else if (controle->getAluControl() == "subi")
 	{
-		rc = calculaBits(rb, bit8, "subtracao");
+		rc = calculaBits(rb, bit_8, "subtracao");
 		verificaNegativo(rc);
 		zero = rc;
 	}
 
 	// Nand
-	else if (controle->getAluctrl() == "nand")
+	else if (controle->getAluControl() == "nand")
 	{
 
 		bool comeco = false;
@@ -380,7 +380,7 @@ void Alu::instrucoesAritmeticas()
 	}
 
 	// Nor
-	else if (controle->getAluctrl() == "nor")
+	else if (controle->getAluControl() == "nor")
 	{
 
 		bool comeco = false;
@@ -411,7 +411,7 @@ void Alu::instrucoesAritmeticas()
 	}
 
 	// halt
-	else if (controle->getAluctrl() == "halt - saída de sistema")
+	else if (controle->getAluControl() == "halt - saída de sistema")
 	{
 		continuar = false;
 	}
@@ -427,38 +427,38 @@ void Alu::instrucoesDeDesvio()
 {
 
 	// JUMP AND LINK
-	if (controle->getAluctrl() == "jal")
+	if (controle->getAluControl() == "jal")
 	{
 		r31 = PC;
-		PC = bit24;
+		PC = bit_24;
 	}
 
 	// JUMP REGISTER
-	else if (controle->getAluctrl() == "jr")
+	else if (controle->getAluControl() == "jr")
 	{
 		PC = r31;
 	}
 
 	//  JUMP SE IGUAL (BEQ)
-	else if (controle->getAluctrl() == "beq")
+	else if (controle->getAluControl() == "beq")
 	{
 		if (ra == rb)
-			PC = bit8;
+			PC = bit_8;
 	}
 
 	//  JUMP SE DIFERENTE (BNE)
-	else if (controle->getAluctrl() == "bne")
+	else if (controle->getAluControl() == "bne")
 	{
 		if (ra != rb)
 		{
-			PC = bit8;
+			PC = bit_8;
 		}
 	}
 
 	//  JUMP INCONDICIONAL
-	else if (controle->getAluctrl() == "j")
+	else if (controle->getAluControl() == "j")
 	{
-		PC = bit24;
+		PC = bit_24;
 	}
 
 	// Altera o PC e o r31 já que eles foram modificados.
@@ -471,16 +471,16 @@ void Alu::instrucoesDeMemoria()
 {
 
 	// LOAD WORD (vou refazer)
-	if (controle->getAluctrl() == "load")
+	if (controle->getAluControl() == "load")
 	{
 		// rc = tenho que setar na memoria o ra;
 	}
 
 	// STORE WORD (vou refazer)
-	if (controle->getAluctrl() == "store")
+	if (controle->getAluControl() == "store")
 	{
 
-		if (controle->getRegwrite() == 0 && controle->getMemwrite() == 1)
+		if (controle->getreg_write() == 0 && controle->getMemwrite() == 1)
 		{
 
 			converteBits(3);
@@ -498,27 +498,27 @@ void Alu::converteBits(int operacao)
 
 		bitset<16> PC = ifStage->getPc();
 
-		bitset<8> bit8 = idStage->getbit8();
+		bitset<8> bit_8 = idStage->getbit_8();
 		bitset<16> bit16 = idStage->getbit16();
-		bitset<24> bit24 = idStage->getbit24();
+		bitset<24> bit_24 = idStage->getbit_24();
 
 		for (int i = 0; i < 16; i++)
 		{
 			this->PC[i] = PC[i];
 		}
 
-		// bit8 (do id) é negativo
-		if (bit8[8 - 1] == 1)
+		// bit_8 (do id) é negativo
+		if (bit_8[8 - 1] == 1)
 		{
 			for (int i = 32 - 1; i > 0; i--)
 			{
-				this->bit8[i] = 1;
+				this->bit_8[i] = 1;
 			}
 		}
-		// bit8 (da alu) recebe os bits do bit8 (do id)
+		// bit_8 (da alu) recebe os bits do bit_8 (do id)
 		for (int i = 0; i < 8; i++)
 		{
-			this->bit8[i] = bit8[i];
+			this->bit_8[i] = bit_8[i];
 		}
 
 		// bit16 (do id) é negativo
@@ -535,18 +535,18 @@ void Alu::converteBits(int operacao)
 			this->bit16[i] = bit16[i];
 		}
 
-		// bit24 (do id) é negativo
-		if (bit24[24 - 1] == 1)
+		// bit_24 (do id) é negativo
+		if (bit_24[24 - 1] == 1)
 		{
 			for (int i = 32 - 1; i > 0; i--)
 			{
-				this->bit24[i] = 1;
+				this->bit_24[i] = 1;
 			}
 		}
-		// bit24 (da alu) recebe os bits do bit24 (do id)
+		// bit_24 (da alu) recebe os bits do bit_24 (do id)
 		for (int i = 0; i < 24; i++)
 		{
-			this->bit24[i] = bit24[i];
+			this->bit_24[i] = bit_24[i];
 		}
 	}
 

@@ -29,8 +29,8 @@ void Wb::leituraEscritaRegistrador()
 {
 
 	// Bits de sinais de controle
-	bool regDst = controle->getRegdst();
-	bool reWrite = controle->getRegwrite();
+	bool reg_dst = controle->getreg_dst();
+	bool reWrite = controle->getreg_write();
 	bool memtoReg = controle->getMemtoReg();
 	bool jump = controle->getJump();
 
@@ -49,14 +49,14 @@ void Wb::leituraEscritaRegistrador()
 	}
 
 	// addi e subi
-	else if (reWrite && regDst && alu->getOverflow() == 0)
+	else if (reWrite && reg_dst && alu->getOverflow() == 0)
 	{
 		bitset<32> novoDado(alu->getResultadoRc());
 		regs->setRegistrador(novoDado, idStage->getRa());
 	}
 
 	// R
-	else if (reWrite && !regDst && alu->getOverflow() == 0)
+	else if (reWrite && !reg_dst && alu->getOverflow() == 0)
 	{
 		bitset<32> novoDado(alu->getResultadoRc());
 		regs->setRegistrador(novoDado, idStage->getRc());

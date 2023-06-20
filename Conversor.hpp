@@ -93,13 +93,19 @@ void Conversor::leituraArquivoEntrada()
                 primeiro = true;
             }
 
-        } while (instrucaoAtual != "EOF");
+        } while (instrucaoAtual != "EOF" || arquivo_entrada.eof());
+
+        if (instrucaoAtual != "EOF") // alteração da massa
+        {
+            throw("Impossivel concluir a aplicação");
+        }
 
         arquivo_entrada.close();
     }
-
     else
-        throw(1);
+    {
+        throw("Arquivo invalido");
+    }
 }
 
 bool Conversor::verificarIntAddress(string str, int &aux)
@@ -302,12 +308,16 @@ string Conversor::retornarInstrucaoEmString(vector<string> *vect)
 
     else
     {
-        throw(4);
+        throw("Instrução invalida");
     }
 }
 
 string Conversor::conversorIntParaBinario8(int valor)
 {
+    if (valor < -128 or valor > 127)
+    {
+        throw("Overflow");
+    }
 
     string str = bitset<8>(valor).to_string();
 
@@ -316,6 +326,10 @@ string Conversor::conversorIntParaBinario8(int valor)
 
 string Conversor::conversorIntParaBinario16(int valor)
 {
+    if (valor < -32768 or valor > 32767)
+    {
+        throw("Overflow");
+    }
 
     string str = bitset<16>(valor).to_string();
 
@@ -327,7 +341,7 @@ string Conversor::conversorIntParaBinario24(int valor)
 
     if (valor < -8388608 or valor > 8388607)
     {
-        throw(15);
+        throw("Overflow");
     }
 
     string str = bitset<24>(valor).to_string();

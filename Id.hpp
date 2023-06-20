@@ -17,9 +17,9 @@ public:
     bitset<32> rbValue;
     bitset<32> rcValue;
 
-    bitset<8> bit8;
+    bitset<8> bit_8;
     bitset<16> bit16;
-    bitset<24> bit24;
+    bitset<24> bit_24;
 
     void reset_valores();
     void decodificarInstrucao(bitset<32> instrucaoBinaria);
@@ -59,13 +59,13 @@ public:
     {
         return bit16;
     };
-    bitset<24> getbit24()
+    bitset<24> getbit_24()
     {
-        return bit24;
+        return bit_24;
     };
-    bitset<8> getbit8()
+    bitset<8> getbit_8()
     {
-        return bit8;
+        return bit_8;
     };
     Controle *getControle()
     {
@@ -98,9 +98,9 @@ void Id::reset_valores()
     rbValue.reset();
     rc = -1;
     rcValue.reset();
-    bit8.reset();
+    bit_8.reset();
     bit16.reset();
-    bit24.reset();
+    bit_24.reset();
 }
 
 void Id::decodificarInstrucao(bitset<32> instrucaoBinaria)
@@ -136,13 +136,13 @@ void Id::decodificarInstrucao(bitset<32> instrucaoBinaria)
 
     // extrai os bits de cada constante
     texto_Binario_Auxiliar = instrucaoString.substr(24, 8);
-    bit8 = bitset<8>(texto_Binario_Auxiliar);
+    bit_8 = bitset<8>(texto_Binario_Auxiliar);
 
     texto_Binario_Auxiliar = instrucaoString.substr(8, 16);
     bit16 = bitset<16>(texto_Binario_Auxiliar);
 
     texto_Binario_Auxiliar = instrucaoString.substr(8, 24);
-    bit24 = bitset<24>(texto_Binario_Auxiliar);
+    bit_24 = bitset<24>(texto_Binario_Auxiliar);
 }
 
 bool Id::verificarRegistrador(string textoBin)
@@ -178,9 +178,9 @@ void Id::depuracao()
          << "Opcode: " << opcode << endl
          << endl
 
-         << "bit8 : " << bit8 << endl
+         << "bit_8 : " << bit_8 << endl
          << "bit16: " << bit16 << endl
-         << "bit24: " << bit24 << endl
+         << "bit_24: " << bit_24 << endl
          << endl;
 
     sinaisControle->depuracao_controle();

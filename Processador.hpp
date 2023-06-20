@@ -77,7 +77,7 @@ private:
     Id *idStage;
     ExMem *exMemStage;
     Wb *wbStage;
-    int qtdClocks;
+    int quant_clock;
     void incrementarClock();
 
 public:
@@ -96,10 +96,10 @@ Processador::Processador()
     }
     catch (int erro)
     {
-        throw(erro);
+        // throw(erro);
     }
 
-    qtdClocks = 0;
+    quant_clock = 0;
 }
 
 Processador::~Processador()
@@ -157,7 +157,7 @@ void Processador::executar()
                  << " ------------------------------ Instrucao Finalizada --------------------------------------------" << endl
                  << endl;
 
-            cout << "Número de clocks " << qtdClocks << endl;
+            cout << "Número de clocks " << quant_clock << endl;
 
             cout << "Pressione ENTER para a próxima instrução . . . ";
             cin.get();
@@ -165,14 +165,14 @@ void Processador::executar()
 
         delete ifStage;
     }
-    catch (int erro)
+    catch (string erro)
     {
-        throw(erro);
+        // throw(erro);
     }
 }
 
 void Processador::incrementarClock()
 {
 
-    qtdClocks++;
+    quant_clock++;
 }

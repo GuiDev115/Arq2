@@ -33,7 +33,7 @@ void ExMem::realizarOperacoes()
 {
 
 	// Realiza os calculos aritmeticos
-	if ((controle->getBranch() == 0) && (controle->getJump() == 0) && (controle->getMemwrite() == 0) && (controle->getMemread() == 0))
+	if ((controle->getBranch() == 0) && (controle->getJump() == 0) && (controle->getMemwrite() == 0) && (controle->getmem_read() == 0))
 		alu->instrucoesAritmeticas();
 
 	// Realiza os calculos dos desvios
@@ -41,6 +41,6 @@ void ExMem::realizarOperacoes()
 		alu->instrucoesDeDesvio();
 
 	// Realiza os calculos para armazenar valores na memoria
-	else if ((controle->getBranch() == 0) && (controle->getJump() == 0) && ((controle->getMemwrite() == 1) || (controle->getMemread() == 1)))
+	else if ((controle->getBranch() == 0) && (controle->getJump() == 0) && ((controle->getMemwrite() == 1) || (controle->getmem_read() == 1)))
 		alu->instrucoesDeMemoria();
 }
