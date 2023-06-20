@@ -1,22 +1,28 @@
+add R8, R16, R17
+sub R8, R9, R10
+zeros R16
+xor R16, R17, R18
+or R2, R16, R17
+passnota R2, R3
+and R16, R17, R18
 asl R2, R16, R6
 asr R3, R16, R5
 lsl R2, R16, R6
 lsr R3, R16, R5
-add R1, R9, R10
-sub R3, R9, R10
-zeros R14
-xor R15, R16, R17
-or R1, R13, R14
-passnota R4, R3
-and R16, R17, R18
 passa R2, R16
+lch R8 30000
+lcl R8 14032
 load R20, R7
 store R20, R6
-jal 1234
-jr R31
-beq R7, R12, 14
-bne R6, R12, 76
-j 312
-
+beq R8, R13, 12
+slt R8, R2, R8
+slti R8, R2, 122
+smt R8, R2, R0
+inc R8
+dec R8
+addi R8, R0, 123
+subi R29, R29, 4
+nand R16, R17, R18
+nor R2, R16, R17
 halt
 EOF

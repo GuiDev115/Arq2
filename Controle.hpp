@@ -306,7 +306,7 @@ void Controle ::alterarSinais(string opcode)
         Branch = 0;
         Jump = 0;
     }
-    else if (opcode == "00010001")
+    else if (opcode == "00010001") // dando provlema
     {
         Regdst = 0;
         Regwrite = 0;
@@ -345,7 +345,7 @@ void Controle ::alterarSinais(string opcode)
         Branch = 1;
         Jump = 0;
     }
-    else if (opcode == "00010100")
+    else if (opcode == "00010100") // dando zika
     {
         Regdst = 0;
         Regwrite = 0;
@@ -358,7 +358,7 @@ void Controle ::alterarSinais(string opcode)
         Branch = 1;
         Jump = 0;
     }
-    else if (opcode == "00010101")
+    else if (opcode == "00010101") // dando problema
     {
         Regdst = 0;
         Regwrite = 0;
@@ -376,36 +376,122 @@ void Controle ::alterarSinais(string opcode)
         Aluctrl = "halt - saída de sistema";
     }
 
+    else if (opcode == "00010110")
+    { // set less than b.22
+        Regdst = 0;
+        Regwrite = 1;
+        Aluctrl = "slt";
+        Memread = 0;
+        Memwrite = 0;
+        Aluop = 10;
+        Alusrc = 0;
+        MemtoReg = 0;
+        Branch = 0;
+        Jump = 0;
+    }
+    else if (opcode == "00010111")
+    { // set less than immediate b.23
+        Regdst = 1;
+        Regwrite = 1;
+        Aluctrl = "slti";
+        Memread = 0;
+        Memwrite = 0;
+        Aluop = 10;
+        Alusrc = 1;
+        MemtoReg = 0;
+        Branch = 0;
+        Jump = 0;
+    }
+    else if (opcode == "00011000")
+    { // smt b.24 (set more than)
+        Regdst = 0;
+        Regwrite = 1;
+        Aluctrl = "smt";
+        Memread = 0;
+        Memwrite = 0;
+        Aluop = 10;
+        Alusrc = 0;
+        MemtoReg = 0;
+        Branch = 0;
+        Jump = 0;
+    }
+    else if (opcode == "00011001")
+    { // inc b.25 (increment)
+        Regdst = 0;
+        Regwrite = 1;
+        Aluctrl = "inc";
+        Memread = 0;
+        Memwrite = 0;
+        Aluop = 0;
+        Alusrc = 0;
+        MemtoReg = 0;
+        Branch = 0;
+        Jump = 0;
+    }
+    else if (opcode == "00011010")
+    { // dec b.26 (decrement)
+        Regdst = 0;
+        Regwrite = 1;
+        Aluctrl = "dec";
+        Memread = 0;
+        Memwrite = 0;
+        Aluop = 0;
+        Alusrc = 0;
+        MemtoReg = 0;
+        Branch = 0;
+        Jump = 0;
+    }
     else if (opcode == "00011011")
-    {
+    { // addi b.27
         Regdst = 1;
         Regwrite = 1;
         Aluctrl = "addi";
+        Memread = 0;
+        Memwrite = 0;
         Aluop = 10;
         Alusrc = 1;
+        MemtoReg = 0;
+        Branch = 0;
+        Jump = 0;
     }
     else if (opcode == "00011100")
-    {
+    { // subi b.28
         Regdst = 1;
         Regwrite = 1;
         Aluctrl = "subi";
-
+        Memread = 0;
+        Memwrite = 0;
         Aluop = 10;
         Alusrc = 1;
+        MemtoReg = 0;
+        Branch = 0;
+        Jump = 0;
     }
     else if (opcode == "00011101")
-    {
-
+    { // nand b.29
+        Regdst = 0;
         Regwrite = 1;
         Aluctrl = "nand";
-
+        Memread = 0;
+        Memwrite = 0;
+        Aluop = 0;
         Alusrc = 10;
+        MemtoReg = 0;
+        Branch = 0;
+        Jump = 0;
     }
     else if (opcode == "00011110")
-    {
+    { // nor b.30
+        Regdst = 0;
         Regwrite = 1;
         Aluctrl = "nor";
+        Memread = 0;
+        Memwrite = 0;
         Aluop = 10;
+        Alusrc = 0;
+        MemtoReg = 0;
+        Branch = 0;
+        Jump = 0;
     }
 }
 

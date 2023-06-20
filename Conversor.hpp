@@ -168,6 +168,7 @@ vector<string> *Conversor::separarString(string str, string delimiter)
 string Conversor::retornarInstrucaoEmString(vector<string> *vect)
 {
 
+    // Instrucoes do UFLA-RISC (23)
     if (vect->at(0) == "address")
     {
         return (conversorIntParaBinario8(0) + conversorIntParaBinario24(stoi(vect->at(1))));
@@ -260,6 +261,28 @@ string Conversor::retornarInstrucaoEmString(vector<string> *vect)
     {
         return "11111111111111111111111111111111";
     }
+
+    // Instrucoes do grupo (9)
+    else if (vect->at(0) == "slt")
+    {
+        return (conversorIntParaBinario8(22) + conversorIntParaBinario8(stoi(vect->at(2))) + conversorIntParaBinario8(stoi(vect->at(3))) + conversorIntParaBinario8(stoi(vect->at(1))));
+    }
+    else if (vect->at(0) == "slti")
+    {
+        return (conversorIntParaBinario8(23) + conversorIntParaBinario8(stoi(vect->at(1))) + conversorIntParaBinario8(stoi(vect->at(2))) + conversorIntParaBinario8(stoi(vect->at(3))));
+    }
+    else if (vect->at(0) == "smt")
+    {
+        return (conversorIntParaBinario8(24) + conversorIntParaBinario8(stoi(vect->at(2))) + conversorIntParaBinario8(stoi(vect->at(3))) + conversorIntParaBinario8(stoi(vect->at(1))));
+    }
+    else if (vect->at(0) == "inc")
+    {
+        return (conversorIntParaBinario8(25) + conversorIntParaBinario8(0) + conversorIntParaBinario8(0) + conversorIntParaBinario8(stoi(vect->at(1))));
+    }
+    else if (vect->at(0) == "dec")
+    {
+        return (conversorIntParaBinario8(26) + conversorIntParaBinario8(0) + conversorIntParaBinario8(0) + conversorIntParaBinario8(stoi(vect->at(1))));
+    }
     else if (vect->at(0) == "addi")
     {
         return (conversorIntParaBinario8(27) + conversorIntParaBinario8(stoi(vect->at(1))) + conversorIntParaBinario8(stoi(vect->at(2))) + conversorIntParaBinario8(stoi(vect->at(3))));
@@ -272,9 +295,14 @@ string Conversor::retornarInstrucaoEmString(vector<string> *vect)
     {
         return (conversorIntParaBinario8(29) + conversorIntParaBinario8(stoi(vect->at(2))) + conversorIntParaBinario8(stoi(vect->at(3))) + conversorIntParaBinario8(stoi(vect->at(1))));
     }
-    else
+    else if (vect->at(0) == "nor")
     {
         return (conversorIntParaBinario8(30) + conversorIntParaBinario8(stoi(vect->at(2))) + conversorIntParaBinario8(stoi(vect->at(3))) + conversorIntParaBinario8(stoi(vect->at(1))));
+    }
+
+    else
+    {
+        throw(4);
     }
 }
 
