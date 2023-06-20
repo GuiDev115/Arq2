@@ -169,12 +169,12 @@ void Registradores::setRegistrador(bitset<32> dadoParaEscrever, bitset<8> numero
 	if (aux < -2147483648 or aux > 2147483647)
 	{
 
-		// throw("Valor invalido");
+		throw("Valor invalido");
 	}
 
 	if (numeroRegistrador == bitset<8>("00000000"))
 	{
-		// throw("Tentativa de setar algum valor no registrador zero!");
+		throw("Tentativa de setar algum valor no registrador zero!");
 	}
 	else if (numeroRegistrador == bitset<8>("00000001"))
 	{
@@ -278,11 +278,11 @@ void Registradores::setRegistrador(bitset<32> dadoParaEscrever, bitset<8> numero
 	}
 	else if (numeroRegistrador == bitset<8>("00011010"))
 	{
-		// throw("Lugar reservado ao OS");
+		throw("Lugar reservado ao OS");
 	}
 	else if (numeroRegistrador == bitset<8>("00011011"))
 	{
-		// throw("Lugar reservado ao OS");
+		throw("Lugar reservado ao OS");
 	}
 	else if (numeroRegistrador == bitset<8>("00011100"))
 	{
@@ -302,7 +302,7 @@ void Registradores::setRegistrador(bitset<32> dadoParaEscrever, bitset<8> numero
 	}
 	else
 	{
-		// throw("Tentativa de escrever em um registrador inexistente!");
+		throw("Tentativa de escrever em um registrador inexistente!");
 	}
 }
 

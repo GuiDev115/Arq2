@@ -94,9 +94,9 @@ Processador::Processador()
         conversor = new Conversor();
         regs = new Registradores();
     }
-    catch (int erro)
+    catch (string erro)
     {
-        // throw(erro);
+        throw(erro);
     }
 
     quant_clock = 0;
@@ -167,7 +167,7 @@ void Processador::executar()
     }
     catch (string erro)
     {
-        // throw(erro);
+        throw(erro);
     }
 }
 

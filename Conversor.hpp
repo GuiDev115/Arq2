@@ -269,7 +269,7 @@ string Conversor::retornarInstrucaoEmString(vector<string> *vect)
     }
 
     // Instrucoes do grupo (9)
-    else if (vect->at(0) == "slt")
+    else if (vect->at(0) == "xori")
     {
         return (conversorIntParaBinario8(22) + conversorIntParaBinario8(stoi(vect->at(2))) + conversorIntParaBinario8(stoi(vect->at(3))) + conversorIntParaBinario8(stoi(vect->at(1))));
     }
