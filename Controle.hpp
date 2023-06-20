@@ -6,7 +6,7 @@ private:
     bool reg_write;
     string AluControl;
     bool mem_read;
-    bool Memwrite;
+    bool mem_wr;
     int Aluop;
     bool Alusrc;
     bool MemtoReg;
@@ -33,9 +33,9 @@ public:
     {
         return mem_read;
     };
-    bool getMemwrite()
+    bool getmem_wr()
     {
-        return Memwrite;
+        return mem_wr;
     };
     int getAluop()
     {
@@ -74,7 +74,7 @@ void Controle::valuesReset()
     reg_write = 0;
     AluControl = "invalido";
     mem_read = 0;
-    Memwrite = 0;
+    mem_wr = 0;
     Aluop = 0;
     Alusrc = 0;
     MemtoReg = 0;
@@ -91,7 +91,7 @@ void Controle ::alterarSinais(string opcode)
         reg_write = 0;
         AluControl = "address";
         mem_read = 0;
-        Memwrite = 0;
+        mem_wr = 0;
         Aluop = 0;
         Alusrc = 0;
         MemtoReg = 0;
@@ -104,7 +104,7 @@ void Controle ::alterarSinais(string opcode)
         reg_write = 1;
         AluControl = "add";
         mem_read = 0;
-        Memwrite = 0;
+        mem_wr = 0;
         Aluop = 10;
         Alusrc = 0;
         MemtoReg = 0;
@@ -117,7 +117,7 @@ void Controle ::alterarSinais(string opcode)
         reg_write = 1;
         AluControl = "sub";
         mem_read = 0;
-        Memwrite = 0;
+        mem_wr = 0;
         Aluop = 10;
         Alusrc = 1;
         MemtoReg = 0;
@@ -130,7 +130,7 @@ void Controle ::alterarSinais(string opcode)
         reg_write = 1;
         AluControl = "zeros";
         mem_read = 0;
-        Memwrite = 0;
+        mem_wr = 0;
         Aluop = 0;
         Alusrc = 1;
         MemtoReg = 0;
@@ -143,7 +143,7 @@ void Controle ::alterarSinais(string opcode)
         reg_write = 1;
         AluControl = "xor";
         mem_read = 0;
-        Memwrite = 0;
+        mem_wr = 0;
         Aluop = 10;
         Alusrc = 0;
         MemtoReg = 0;
@@ -156,7 +156,7 @@ void Controle ::alterarSinais(string opcode)
         reg_write = 1;
         AluControl = "or";
         mem_read = 0;
-        Memwrite = 0;
+        mem_wr = 0;
         Aluop = 10;
         Alusrc = 0;
         MemtoReg = 0;
@@ -169,7 +169,7 @@ void Controle ::alterarSinais(string opcode)
         reg_write = 1;
         AluControl = "passnota";
         mem_read = 0;
-        Memwrite = 0;
+        mem_wr = 0;
         Aluop = 10;
         Alusrc = 0;
         MemtoReg = 0;
@@ -182,7 +182,7 @@ void Controle ::alterarSinais(string opcode)
         reg_write = 1;
         AluControl = "and";
         mem_read = 0;
-        Memwrite = 0;
+        mem_wr = 0;
         Aluop = 10;
         Alusrc = 0;
         MemtoReg = 0;
@@ -195,7 +195,7 @@ void Controle ::alterarSinais(string opcode)
         reg_write = 1;
         AluControl = "asl";
         mem_read = 0;
-        Memwrite = 0;
+        mem_wr = 0;
         Aluop = 0;
         Alusrc = 0;
         MemtoReg = 0;
@@ -208,7 +208,7 @@ void Controle ::alterarSinais(string opcode)
         reg_write = 1;
         AluControl = "asr";
         mem_read = 0;
-        Memwrite = 0;
+        mem_wr = 0;
         Aluop = 0;
         Alusrc = 0;
         MemtoReg = 0;
@@ -221,7 +221,7 @@ void Controle ::alterarSinais(string opcode)
         reg_write = 1;
         AluControl = "lsl";
         mem_read = 0;
-        Memwrite = 0;
+        mem_wr = 0;
         Aluop = 0;
         Alusrc = 0;
         MemtoReg = 0;
@@ -234,7 +234,7 @@ void Controle ::alterarSinais(string opcode)
         reg_write = 1;
         AluControl = "lsr";
         mem_read = 0;
-        Memwrite = 0;
+        mem_wr = 0;
         Aluop = 0;
         Alusrc = 0;
         MemtoReg = 0;
@@ -247,7 +247,7 @@ void Controle ::alterarSinais(string opcode)
         reg_write = 1;
         AluControl = "passa";
         mem_read = 0;
-        Memwrite = 0;
+        mem_wr = 0;
         Aluop = 0;
         Alusrc = 0;
         MemtoReg = 0;
@@ -260,7 +260,7 @@ void Controle ::alterarSinais(string opcode)
         reg_write = 1;
         AluControl = "lch";
         mem_read = 0;
-        Memwrite = 0;
+        mem_wr = 0;
         Aluop = 0;
         Alusrc = 1;
         MemtoReg = 0;
@@ -273,7 +273,7 @@ void Controle ::alterarSinais(string opcode)
         reg_write = 1;
         AluControl = "lcl";
         mem_read = 0;
-        Memwrite = 0;
+        mem_wr = 0;
         Aluop = 0;
         Alusrc = 1;
         MemtoReg = 0;
@@ -286,7 +286,7 @@ void Controle ::alterarSinais(string opcode)
         reg_write = 1;
         AluControl = "load";
         mem_read = 1;
-        Memwrite = 0;
+        mem_wr = 0;
         Aluop = 0;
         Alusrc = 1;
         MemtoReg = 1;
@@ -299,7 +299,7 @@ void Controle ::alterarSinais(string opcode)
         reg_write = 0;
         AluControl = "store";
         mem_read = 0;
-        Memwrite = 1;
+        mem_wr = 1;
         Aluop = 0;
         Alusrc = 1;
         MemtoReg = 0;
@@ -312,7 +312,7 @@ void Controle ::alterarSinais(string opcode)
         reg_write = 0;
         AluControl = "jal";
         mem_read = 0;
-        Memwrite = 0;
+        mem_wr = 0;
         Aluop = 0;
         Alusrc = 0;
         MemtoReg = 0;
@@ -325,7 +325,7 @@ void Controle ::alterarSinais(string opcode)
         reg_write = 0;
         AluControl = "jr";
         mem_read = 0;
-        Memwrite = 0;
+        mem_wr = 0;
         Aluop = 0;
         Alusrc = 0;
         MemtoReg = 0;
@@ -338,7 +338,7 @@ void Controle ::alterarSinais(string opcode)
         reg_write = 0;
         AluControl = "beq";
         mem_read = 0;
-        Memwrite = 0;
+        mem_wr = 0;
         Aluop = 0;
         Alusrc = 0;
         MemtoReg = 0;
@@ -351,7 +351,7 @@ void Controle ::alterarSinais(string opcode)
         reg_write = 0;
         AluControl = "bne";
         mem_read = 0;
-        Memwrite = 0;
+        mem_wr = 0;
         Aluop = 0;
         Alusrc = 0;
         MemtoReg = 0;
@@ -364,7 +364,7 @@ void Controle ::alterarSinais(string opcode)
         reg_write = 0;
         AluControl = "j";
         mem_read = 0;
-        Memwrite = 0;
+        mem_wr = 0;
         Aluop = 0;
         Alusrc = 0;
         MemtoReg = 0;
@@ -382,7 +382,7 @@ void Controle ::alterarSinais(string opcode)
         reg_write = 1;
         AluControl = "xori";
         mem_read = 0;
-        Memwrite = 0;
+        mem_wr = 0;
         Aluop = 10;
         Alusrc = 0;
         MemtoReg = 0;
@@ -395,7 +395,7 @@ void Controle ::alterarSinais(string opcode)
         reg_write = 1;
         AluControl = "slti";
         mem_read = 0;
-        Memwrite = 0;
+        mem_wr = 0;
         Aluop = 10;
         Alusrc = 1;
         MemtoReg = 0;
@@ -403,51 +403,52 @@ void Controle ::alterarSinais(string opcode)
         Jump = 0;
     }
     else if (opcode == "00011000")
-    { // smt b.24 (set more than)
-        reg_dst = 0;
-        reg_write = 1;
-        AluControl = "smt";
-        mem_read = 0;
-        Memwrite = 0;
-        Aluop = 10;
-        Alusrc = 0;
-        MemtoReg = 0;
-        Branch = 0;
-        Jump = 0;
-    }
-    else if (opcode == "00011001")
     {
         reg_dst = 0;
         reg_write = 0;
-        AluControl = "bge";
+        AluControl = "blt";
         mem_read = 0;
-        Memwrite = 0;
+        mem_wr = 0;
         Aluop = 0;
         Alusrc = 0;
         MemtoReg = 0;
         Branch = 1;
         Jump = 0;
     }
-    else if (opcode == "00011010")
-    { // dec b.26 (decrement)
+    else if (opcode == "00011001")
+    {
+
         reg_dst = 0;
         reg_write = 1;
-        AluControl = "dec";
+        AluControl = "storei";
         mem_read = 0;
-        Memwrite = 1;
+        mem_wr = 1;
         Aluop = 0;
         Alusrc = 1;
-        MemtoReg = 1;
+        MemtoReg = 0;
+        Branch = 0;
+        Jump = 0;
+    }
+    else if (opcode == "00011010")
+    {
+        reg_dst = 0;
+        reg_write = 1;
+        AluControl = "andi";
+        mem_read = 0;
+        mem_wr = 0;
+        Aluop = 10;
+        Alusrc = 0;
+        MemtoReg = 0;
         Branch = 0;
         Jump = 0;
     }
     else if (opcode == "00011011")
-    { // addi b.27
+    {
         reg_dst = 1;
         reg_write = 1;
         AluControl = "addi";
         mem_read = 0;
-        Memwrite = 0;
+        mem_wr = 0;
         Aluop = 10;
         Alusrc = 1;
         MemtoReg = 0;
@@ -456,41 +457,42 @@ void Controle ::alterarSinais(string opcode)
     }
     else if (opcode == "00011100")
     { // subi b.28
-        reg_dst = 1;
-        reg_write = 1;
-        AluControl = "subi";
-        mem_read = 0;
-        Memwrite = 0;
-        Aluop = 10;
-        Alusrc = 1;
-        MemtoReg = 0;
-        Branch = 0;
-        Jump = 0;
-    }
-    else if (opcode == "00011101")
-    { // nand b.29
         reg_dst = 0;
         reg_write = 1;
         AluControl = "nand";
         mem_read = 0;
-        Memwrite = 0;
+        mem_wr = 0;
         Aluop = 0;
         Alusrc = 10;
         MemtoReg = 0;
         Branch = 0;
         Jump = 0;
     }
-    else if (opcode == "00011110")
-    { // nor b.30
-        reg_dst = 0;
+    else if (opcode == "00011101")
+    {
+
+        reg_dst = 1;
         reg_write = 1;
-        AluControl = "nor";
+        AluControl = "subi";
         mem_read = 0;
-        Memwrite = 0;
+        mem_wr = 0;
         Aluop = 10;
-        Alusrc = 0;
+        Alusrc = 1;
         MemtoReg = 0;
         Branch = 0;
+        Jump = 0;
+    }
+    else if (opcode == "00011110")
+    {
+        reg_dst = 0;
+        reg_write = 0;
+        AluControl = "bge";
+        mem_read = 0;
+        mem_wr = 0;
+        Aluop = 0;
+        Alusrc = 0;
+        MemtoReg = 0;
+        Branch = 1;
         Jump = 0;
     }
 }
@@ -506,7 +508,7 @@ void Controle::depuracao_controle()
     cout << "| AluControl: " << AluControl << "                 |" << endl;
     cout << "|______________________________|" << endl;
     cout << "| mem_read: " << mem_read << " |||||| "
-         << "Memwrite: " << Memwrite << "|" << endl;
+         << "mem_wr: " << mem_wr << "|" << endl;
     cout << "|______________________________|" << endl;
     cout << "| Aluop: " << Aluop << " |||||||"
          << "Alusrc: " << Alusrc << "   |" << endl;

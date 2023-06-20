@@ -272,30 +272,15 @@ void Alu::instrucoesAritmeticas()
 			}
 		}
 
-		// não causa overflow
 		verificaNegativo(rc);
 		zero = rc;
 	}
 
-	// Smt
-	else if (controle->getAluControl() == "smt")
+	else if (controle->getAluControl() == "blt")
 	{
 
-		bool result = false;
-		rc = result;
-
-		for (int i = 31; i >= 0 && !result; i--)
-		{
-			if (ra[i] > rb[i])
-			{
-				result = 1;
-				rc = result;
-			}
-			else if (ra[i] < rb[i])
-			{
-				break;
-			}
-		}
+		if (ra.to_ulong() < rb.to_ulong())
+			PC = bit_8.to_ulong();
 	}
 
 	else if (controle->getAluControl() == "bge")
@@ -304,10 +289,10 @@ void Alu::instrucoesAritmeticas()
 			PC = bit_8.to_ulong();
 	}
 
-	else if (controle->getAluControl() == "dec")
+	else if (controle->getAluControl() == "andi")
 	{
-
-		rc = calculaBits(rc, 1, "subtracao");
+		rc = rb & bit_8;
+		// nao causa overflow
 		verificaNegativo(rc);
 		zero = rc;
 	}
@@ -355,30 +340,15 @@ void Alu::instrucoesAritmeticas()
 		zero = rc;
 	}
 
-	// Nor
-	else if (controle->getAluControl() == "nor")
+	else if (controle->getAluControl() == "storei")
 	{
 
-		bool comeco = false;
-
-		for (int i = 31; i >= 0; i--)
+		if (controle->getreg_write() == 0 && controle->getmem_wr() == 1)
 		{
+			converteBits(3);
 
-			if (!comeco and ra[i] == 0 and rb[i] == 0)
-				continue;
-
-			else
-			{
-				comeco = true;
-				if ((ra[i] | rb[i]) == 1)
-					rc[i] = 0;
-				else
-					rc[i] = 1;
-			}
+			memoria->armazenarDado(ra, novoRc);
 		}
-		// nao causa overflow
-		verificaNegativo(rc);
-		zero = rc;
 	}
 
 	// halt
@@ -451,7 +421,7 @@ void Alu::instrucoesDeMemoria()
 	if (controle->getAluControl() == "store")
 	{
 
-		if (controle->getreg_write() == 0 && controle->getMemwrite() == 1)
+		if (controle->getreg_write() == 0 && controle->getmem_wr() == 1)
 		{
 
 			converteBits(3);
