@@ -277,33 +277,33 @@ string Conversor::retornarInstrucaoEmString(vector<string> *vect)
     {
         return (conversorIntParaBinario8(23) + conversorIntParaBinario8(stoi(vect->at(1))) + conversorIntParaBinario8(stoi(vect->at(2))) + conversorIntParaBinario8(stoi(vect->at(3))));
     }
-    else if (vect->at(0) == "smt")
+    else if (vect->at(0) == "blt")
     {
-        return (conversorIntParaBinario8(24) + conversorIntParaBinario8(stoi(vect->at(2))) + conversorIntParaBinario8(stoi(vect->at(3))) + conversorIntParaBinario8(stoi(vect->at(1))));
+        return (conversorIntParaBinario8(24) + conversorIntParaBinario8(stoi(vect->at(1))) + conversorIntParaBinario8(stoi(vect->at(2))) + conversorIntParaBinario8(stoi(vect->at(3))));
     }
-    else if (vect->at(0) == "bge")
+    else if (vect->at(0) == "storei")
     {
-        return (conversorIntParaBinario8(25) + conversorIntParaBinario8(stoi(vect->at(1))) + conversorIntParaBinario8(stoi(vect->at(2))) + conversorIntParaBinario8(stoi(vect->at(3))));
+        return (conversorIntParaBinario8(25) + conversorIntParaBinario8(stoi(vect->at(2))) + conversorIntParaBinario8(0) + conversorIntParaBinario8(stoi(vect->at(1))));
     }
-    else if (vect->at(0) == "dec")
+    else if (vect->at(0) == "andi")
     {
-        return (conversorIntParaBinario8(26) + conversorIntParaBinario8(0) + conversorIntParaBinario8(0) + conversorIntParaBinario8(stoi(vect->at(1))));
+        return (conversorIntParaBinario8(26) + conversorIntParaBinario8(stoi(vect->at(2))) + conversorIntParaBinario8(stoi(vect->at(3))) + conversorIntParaBinario8(stoi(vect->at(1))));
     }
     else if (vect->at(0) == "addi")
     {
         return (conversorIntParaBinario8(27) + conversorIntParaBinario8(stoi(vect->at(1))) + conversorIntParaBinario8(stoi(vect->at(2))) + conversorIntParaBinario8(stoi(vect->at(3))));
     }
-    else if (vect->at(0) == "subi")
-    {
-        return (conversorIntParaBinario8(28) + conversorIntParaBinario8(stoi(vect->at(1))) + conversorIntParaBinario8(stoi(vect->at(2))) + conversorIntParaBinario8(stoi(vect->at(3))));
-    }
     else if (vect->at(0) == "nand")
     {
-        return (conversorIntParaBinario8(29) + conversorIntParaBinario8(stoi(vect->at(2))) + conversorIntParaBinario8(stoi(vect->at(3))) + conversorIntParaBinario8(stoi(vect->at(1))));
+        return (conversorIntParaBinario8(28) + conversorIntParaBinario8(stoi(vect->at(2))) + conversorIntParaBinario8(stoi(vect->at(3))) + conversorIntParaBinario8(stoi(vect->at(1))));
     }
-    else if (vect->at(0) == "nor")
+    else if (vect->at(0) == "subi")
     {
-        return (conversorIntParaBinario8(30) + conversorIntParaBinario8(stoi(vect->at(2))) + conversorIntParaBinario8(stoi(vect->at(3))) + conversorIntParaBinario8(stoi(vect->at(1))));
+        return (conversorIntParaBinario8(29) + conversorIntParaBinario8(stoi(vect->at(1))) + conversorIntParaBinario8(stoi(vect->at(2))) + conversorIntParaBinario8(stoi(vect->at(3))));
+    }
+    else if (vect->at(0) == "bge")
+    {
+        return (conversorIntParaBinario8(30) + conversorIntParaBinario8(stoi(vect->at(1))) + conversorIntParaBinario8(stoi(vect->at(2))) + conversorIntParaBinario8(stoi(vect->at(3))));
     }
 
     else
