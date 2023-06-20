@@ -15,6 +15,9 @@ private:
     string conversorIntParaBinario16(int valor);
     string conversorIntParaBinario24(int valor);
 
+
+
+
 public:
     Conversor();
 
