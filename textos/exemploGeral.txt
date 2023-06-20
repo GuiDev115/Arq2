@@ -1,3 +1,4 @@
+address 8000
 add R1, R16, R17
 sub R1, R9, R10
 

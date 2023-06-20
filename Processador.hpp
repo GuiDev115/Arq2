@@ -63,7 +63,7 @@ long conversorBinInteiro(bitset<32> bin)
 #include "Conversor.hpp"
 #include "Registradores.hpp"
 #include "If-Id.hpp"
-#include "ExMem.hpp"
+#include "ExeM.hpp"
 #include "Wb.hpp"
 
 class Processador

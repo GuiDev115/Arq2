@@ -1,0 +1,10 @@
+addi R1, R0, 10
+subi R3, R4, 10
+addi R1, R0, 5
+storei R1, 20
+load R2, R1
+passnota R2, R3
+subi R1, R1, 1
+bge R1, R0, -6
+halt
+EOF
