@@ -2,7 +2,7 @@ class Registradores
 {
 
 private:
-	bitset<32> *vetorReg;
+	bitset<32> *vecReg;
 
 public:
 	Registradores();
@@ -15,16 +15,16 @@ public:
 Registradores::Registradores()
 {
 
-	vetorReg = new bitset<32>[32];
+	vecReg = new bitset<32>[32];
 
-	vetorReg[28] = 16384;	  // gp
-	vetorReg[29] = 65536 - 1; // sp
+	vecReg[28] = 16384;		// gp
+	vecReg[29] = 65536 - 1; // sp
 }
 
 Registradores::~Registradores()
 {
 
-	delete[] vetorReg;
+	delete[] vecReg;
 }
 
 bitset<32> Registradores::getRegistrador(bitset<8> numeroRegistrador)
@@ -32,131 +32,131 @@ bitset<32> Registradores::getRegistrador(bitset<8> numeroRegistrador)
 
 	if (numeroRegistrador == bitset<8>("00000000"))
 	{
-		return vetorReg[0];
+		return vecReg[0];
 	}
 	else if (numeroRegistrador == bitset<8>("00000001"))
 	{
-		return vetorReg[1];
+		return vecReg[1];
 	}
 	else if (numeroRegistrador == bitset<8>("00000010"))
 	{
-		return vetorReg[2];
+		return vecReg[2];
 	}
 	else if (numeroRegistrador == bitset<8>("00000011"))
 	{
-		return vetorReg[3];
+		return vecReg[3];
 	}
 	else if (numeroRegistrador == bitset<8>("00000100"))
 	{
-		return vetorReg[4];
+		return vecReg[4];
 	}
 	else if (numeroRegistrador == bitset<8>("00000101"))
 	{
-		return vetorReg[5];
+		return vecReg[5];
 	}
 	else if (numeroRegistrador == bitset<8>("00000110"))
 	{
-		return vetorReg[6];
+		return vecReg[6];
 	}
 	else if (numeroRegistrador == bitset<8>("00000111"))
 	{
-		return vetorReg[7];
+		return vecReg[7];
 	}
 	else if (numeroRegistrador == bitset<8>("00001000"))
 	{
-		return vetorReg[8];
+		return vecReg[8];
 	}
 	else if (numeroRegistrador == bitset<8>("00001001"))
 	{
-		return vetorReg[9];
+		return vecReg[9];
 	}
 	else if (numeroRegistrador == bitset<8>("00001010"))
 	{
-		return vetorReg[10];
+		return vecReg[10];
 	}
 	else if (numeroRegistrador == bitset<8>("00001011"))
 	{
-		return vetorReg[11];
+		return vecReg[11];
 	}
 	else if (numeroRegistrador == bitset<8>("00001100"))
 	{
-		return vetorReg[12];
+		return vecReg[12];
 	}
 	else if (numeroRegistrador == bitset<8>("00001101"))
 	{
-		return vetorReg[13];
+		return vecReg[13];
 	}
 	else if (numeroRegistrador == bitset<8>("00001110"))
 	{
-		return vetorReg[14];
+		return vecReg[14];
 	}
 	else if (numeroRegistrador == bitset<8>("00001111"))
 	{
-		return vetorReg[15];
+		return vecReg[15];
 	}
 	else if (numeroRegistrador == bitset<8>("00010000"))
 	{
-		return vetorReg[16];
+		return vecReg[16];
 	}
 	else if (numeroRegistrador == bitset<8>("00010001"))
 	{
-		return vetorReg[17];
+		return vecReg[17];
 	}
 	else if (numeroRegistrador == bitset<8>("00010010"))
 	{
-		return vetorReg[18];
+		return vecReg[18];
 	}
 	else if (numeroRegistrador == bitset<8>("00010011"))
 	{
-		return vetorReg[19];
+		return vecReg[19];
 	}
 	else if (numeroRegistrador == bitset<8>("00010100"))
 	{
-		return vetorReg[20];
+		return vecReg[20];
 	}
 	else if (numeroRegistrador == bitset<8>("00010101"))
 	{
-		return vetorReg[21];
+		return vecReg[21];
 	}
 	else if (numeroRegistrador == bitset<8>("00010110"))
 	{
-		return vetorReg[22];
+		return vecReg[22];
 	}
 	else if (numeroRegistrador == bitset<8>("00010111"))
 	{
-		return vetorReg[23];
+		return vecReg[23];
 	}
 	else if (numeroRegistrador == bitset<8>("00011000"))
 	{
-		return vetorReg[24];
+		return vecReg[24];
 	}
 	else if (numeroRegistrador == bitset<8>("00011001"))
 	{
-		return vetorReg[25];
+		return vecReg[25];
 	}
 	else if (numeroRegistrador == bitset<8>("00011010"))
 	{
-		return vetorReg[26];
+		return vecReg[26];
 	}
 	else if (numeroRegistrador == bitset<8>("00011011"))
 	{
-		return vetorReg[27];
+		return vecReg[27];
 	}
 	else if (numeroRegistrador == bitset<8>("00011100"))
 	{
-		return vetorReg[28];
+		return vecReg[28];
 	}
 	else if (numeroRegistrador == bitset<8>("00011101"))
 	{
-		return vetorReg[29];
+		return vecReg[29];
 	}
 	else if (numeroRegistrador == bitset<8>("00011110"))
 	{
-		return vetorReg[30];
+		return vecReg[30];
 	}
 	else if (numeroRegistrador == bitset<8>("00011111"))
 	{
-		return vetorReg[31];
+		return vecReg[31];
 	}
 	throw("O registrador lido não pertence ao conjunto!");
 }
@@ -178,103 +178,103 @@ void Registradores::setRegistrador(bitset<32> dadoParaEscrever, bitset<8> numero
 	}
 	else if (numeroRegistrador == bitset<8>("00000001"))
 	{
-		vetorReg[1] = dadoParaEscrever;
+		vecReg[1] = dadoParaEscrever;
 	}
 	else if (numeroRegistrador == bitset<8>("00000010"))
 	{
-		vetorReg[2] = dadoParaEscrever;
+		vecReg[2] = dadoParaEscrever;
 	}
 	else if (numeroRegistrador == bitset<8>("00000011"))
 	{
-		vetorReg[3] = dadoParaEscrever;
+		vecReg[3] = dadoParaEscrever;
 	}
 	else if (numeroRegistrador == bitset<8>("00000100"))
 	{
-		vetorReg[4] = dadoParaEscrever;
+		vecReg[4] = dadoParaEscrever;
 	}
 	else if (numeroRegistrador == bitset<8>("00000101"))
 	{
-		vetorReg[5] = dadoParaEscrever;
+		vecReg[5] = dadoParaEscrever;
 	}
 	else if (numeroRegistrador == bitset<8>("00000110"))
 	{
-		vetorReg[6] = dadoParaEscrever;
+		vecReg[6] = dadoParaEscrever;
 	}
 	else if (numeroRegistrador == bitset<8>("00000111"))
 	{
-		vetorReg[7] = dadoParaEscrever;
+		vecReg[7] = dadoParaEscrever;
 	}
 	else if (numeroRegistrador == bitset<8>("00001000"))
 	{
-		vetorReg[8] = dadoParaEscrever;
+		vecReg[8] = dadoParaEscrever;
 	}
 	else if (numeroRegistrador == bitset<8>("00001001"))
 	{
-		vetorReg[9] = dadoParaEscrever;
+		vecReg[9] = dadoParaEscrever;
 	}
 	else if (numeroRegistrador == bitset<8>("00001010"))
 	{
-		vetorReg[10] = dadoParaEscrever;
+		vecReg[10] = dadoParaEscrever;
 	}
 	else if (numeroRegistrador == bitset<8>("00001011"))
 	{
-		vetorReg[11] = dadoParaEscrever;
+		vecReg[11] = dadoParaEscrever;
 	}
 	else if (numeroRegistrador == bitset<8>("00001100"))
 	{
-		vetorReg[12] = dadoParaEscrever;
+		vecReg[12] = dadoParaEscrever;
 	}
 	else if (numeroRegistrador == bitset<8>("00001101"))
 	{
-		vetorReg[13] = dadoParaEscrever;
+		vecReg[13] = dadoParaEscrever;
 	}
 	else if (numeroRegistrador == bitset<8>("00001110"))
 	{
-		vetorReg[14] = dadoParaEscrever;
+		vecReg[14] = dadoParaEscrever;
 	}
 	else if (numeroRegistrador == bitset<8>("00001111"))
 	{
-		vetorReg[15] = dadoParaEscrever;
+		vecReg[15] = dadoParaEscrever;
 	}
 	else if (numeroRegistrador == bitset<8>("00010000"))
 	{
-		vetorReg[16] = dadoParaEscrever;
+		vecReg[16] = dadoParaEscrever;
 	}
 	else if (numeroRegistrador == bitset<8>("00010001"))
 	{
-		vetorReg[17] = dadoParaEscrever;
+		vecReg[17] = dadoParaEscrever;
 	}
 	else if (numeroRegistrador == bitset<8>("00010010"))
 	{
-		vetorReg[18] = dadoParaEscrever;
+		vecReg[18] = dadoParaEscrever;
 	}
 	else if (numeroRegistrador == bitset<8>("00010011"))
 	{
-		vetorReg[19] = dadoParaEscrever;
+		vecReg[19] = dadoParaEscrever;
 	}
 	else if (numeroRegistrador == bitset<8>("00010100"))
 	{
-		vetorReg[20] = dadoParaEscrever;
+		vecReg[20] = dadoParaEscrever;
 	}
 	else if (numeroRegistrador == bitset<8>("00010101"))
 	{
-		vetorReg[21] = dadoParaEscrever;
+		vecReg[21] = dadoParaEscrever;
 	}
 	else if (numeroRegistrador == bitset<8>("00010110"))
 	{
-		vetorReg[22] = dadoParaEscrever;
+		vecReg[22] = dadoParaEscrever;
 	}
 	else if (numeroRegistrador == bitset<8>("00010111"))
 	{
-		vetorReg[23] = dadoParaEscrever;
+		vecReg[23] = dadoParaEscrever;
 	}
 	else if (numeroRegistrador == bitset<8>("00011000"))
 	{
-		vetorReg[24] = dadoParaEscrever;
+		vecReg[24] = dadoParaEscrever;
 	}
 	else if (numeroRegistrador == bitset<8>("00011001"))
 	{
-		vetorReg[25] = dadoParaEscrever;
+		vecReg[25] = dadoParaEscrever;
 	}
 	else if (numeroRegistrador == bitset<8>("00011010"))
 	{
@@ -286,19 +286,19 @@ void Registradores::setRegistrador(bitset<32> dadoParaEscrever, bitset<8> numero
 	}
 	else if (numeroRegistrador == bitset<8>("00011100"))
 	{
-		vetorReg[28] = dadoParaEscrever;
+		vecReg[28] = dadoParaEscrever;
 	}
 	else if (numeroRegistrador == bitset<8>("00011101"))
 	{
-		vetorReg[29] = dadoParaEscrever;
+		vecReg[29] = dadoParaEscrever;
 	}
 	else if (numeroRegistrador == bitset<8>("00011110"))
 	{
-		vetorReg[30] = dadoParaEscrever;
+		vecReg[30] = dadoParaEscrever;
 	}
 	else if (numeroRegistrador == bitset<8>("00011111"))
 	{
-		vetorReg[31] = dadoParaEscrever;
+		vecReg[31] = dadoParaEscrever;
 	}
 	else
 	{
@@ -309,39 +309,72 @@ void Registradores::setRegistrador(bitset<32> dadoParaEscrever, bitset<8> numero
 void Registradores::depuracao()
 {
 
-	cout << endl
-		 << "Registradores um a um:" << endl;
-	cout << "zero    : " << vetorReg[0] << endl
-		 << "at (1)  : " << vetorReg[1] << endl
-		 << "v0 (2)  : " << vetorReg[2] << endl
-		 << "v1 (3)  : " << vetorReg[3] << endl
-		 << "a0 (4)  : " << vetorReg[4] << endl
-		 << "a1 (5)  : " << vetorReg[5] << endl
-		 << "a2 (6)  : " << vetorReg[6] << endl
-		 << "a3 (7)  : " << vetorReg[7] << endl
-		 << "t0 (8)  : " << vetorReg[8] << endl
-		 << "t1 (9)  : " << vetorReg[9] << endl
-		 << "t2 (10) : " << vetorReg[10] << endl
-		 << "t3 (11) : " << vetorReg[11] << endl
-		 << "t4 (12) : " << vetorReg[12] << endl
-		 << "t5 (13) : " << vetorReg[13] << endl
-		 << "t6 (14) : " << vetorReg[14] << endl
-		 << "t7 (15) : " << vetorReg[15] << endl
-		 << "s0 (16) : " << vetorReg[16] << endl
-		 << "s1 (17) : " << vetorReg[17] << endl
-		 << "s2 (18) : " << vetorReg[18] << endl
-		 << "s3 (19) : " << vetorReg[19] << endl
-		 << "s4 (20) : " << vetorReg[20] << endl
-		 << "s5 (21) : " << vetorReg[21] << endl
-		 << "s6 (22) : " << vetorReg[22] << endl
-		 << "s7 (23) : " << vetorReg[23] << endl
-		 << "t8 (24) : " << vetorReg[24] << endl
-		 << "t9 (25) : " << vetorReg[25] << endl
-		 << "k0 (26) : " << vetorReg[26] << endl
-		 << "k1 (27) : " << vetorReg[27] << endl
-		 << "gp (28) : " << vetorReg[28] << endl
-		 << "sp (29) : " << vetorReg[29] << endl
-		 << "fp (30) : " << vetorReg[30] << endl
-		 << "ra (31) : " << vetorReg[31] << endl
+	cout << endl;
+	cout << "REGISTRADORES UM A UM:" << endl;
+	cout << "________________________________________________" << endl;
+	cout << "|  zero    : " << vecReg[0] << "   |" << endl;
+	cout << "|_______________________________________________|" << endl;
+	cout << "|  at (1)  : " << vecReg[1] << "   |" << endl;
+	cout << "|_______________________________________________|" << endl;
+	cout << "|  v0 (2)  : " << vecReg[2] << "   |" << endl;
+	cout << "|_______________________________________________|" << endl;
+	cout << "|  v1 (3)  : " << vecReg[3] << "   |" << endl;
+	cout << "|_______________________________________________|" << endl;
+	cout << "|  a0 (4)  : " << vecReg[4] << "   |" << endl;
+	cout << "|_______________________________________________|" << endl;
+	cout << "|  a1 (5)  : " << vecReg[5] << "   |" << endl;
+	cout << "|_______________________________________________|" << endl;
+	cout << "|  a2 (6)  : " << vecReg[6] << "   |" << endl;
+	cout << "|_______________________________________________|" << endl;
+	cout << "|  a3 (7)  : " << vecReg[7] << "   |" << endl;
+	cout << "|_______________________________________________|" << endl;
+	cout << "|  t0 (8)  : " << vecReg[8] << "   |" << endl;
+	cout << "|_______________________________________________|" << endl;
+	cout << "|  t1 (9)  : " << vecReg[9] << "   |" << endl;
+	cout << "|_______________________________________________|" << endl;
+	cout << "|  t2 (10) : " << vecReg[10] << "   |" << endl;
+	cout << "|_______________________________________________|" << endl;
+	cout << "|  t3 (11) : " << vecReg[11] << "   |" << endl;
+	cout << "|_______________________________________________|" << endl;
+	cout << "|  t4 (12) : " << vecReg[12] << "   |" << endl;
+	cout << "|_______________________________________________|" << endl;
+	cout << "|  t5 (13) : " << vecReg[13] << "   |" << endl;
+	cout << "|_______________________________________________|" << endl;
+	cout << "|  t6 (14) : " << vecReg[14] << "   |" << endl;
+	cout << "|_______________________________________________|" << endl;
+	cout << "|  t7 (15) : " << vecReg[15] << "   |" << endl;
+	cout << "|_______________________________________________|" << endl;
+	cout << "|  s0 (16) : " << vecReg[16] << "   |" << endl;
+	cout << "|_______________________________________________|" << endl;
+	cout << "|  s1 (17) : " << vecReg[17] << "   |" << endl;
+	cout << "|_______________________________________________|" << endl;
+	cout << "|  s2 (18) : " << vecReg[18] << "   |" << endl;
+	cout << "|_______________________________________________|" << endl;
+	cout << "|  s3 (19) : " << vecReg[19] << "   |" << endl;
+	cout << "|_______________________________________________|" << endl;
+	cout << "|  s4 (20) : " << vecReg[20] << "   |" << endl;
+	cout << "|_______________________________________________|" << endl;
+	cout << "|  s5 (21) : " << vecReg[21] << "   |" << endl;
+	cout << "|_______________________________________________|" << endl;
+	cout << "|  s6 (22) : " << vecReg[22] << "   |" << endl;
+	cout << "|_______________________________________________|" << endl;
+	cout << "|  s7 (23) : " << vecReg[23] << "   |" << endl;
+	cout << "|_______________________________________________|" << endl;
+	cout << "|  t8 (24) : " << vecReg[24] << "   |" << endl;
+	cout << "|_______________________________________________|" << endl;
+	cout << "|  t9 (25) : " << vecReg[25] << "   |" << endl;
+	cout << "|_______________________________________________|" << endl;
+	cout << "|  k0 (26) : " << vecReg[26] << "   |" << endl;
+	cout << "|_______________________________________________|" << endl;
+	cout << "|  k1 (27) : " << vecReg[27] << "   |" << endl;
+	cout << "|_______________________________________________|" << endl;
+	cout << "|  gp (28) : " << vecReg[28] << "   |" << endl;
+	cout << "|_______________________________________________|" << endl;
+	cout << "|  sp (29) : " << vecReg[29] << "   |" << endl;
+	cout << "|_______________________________________________|" << endl;
+	cout << "|  fp (30) : " << vecReg[30] << "   |" << endl;
+	cout << "|_______________________________________________|" << endl;
+	cout << "|  ra (31) : " << vecReg[31] << "   |" << endl;
+	cout << "|_______________________________________________|" << endl
 		 << endl;
 }

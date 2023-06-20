@@ -240,17 +240,10 @@ void Controle ::alterarSinais(string opcode)
     }
     else if (opcode == "00011001")
     {
-
-        reg_dst = 0;
         reg_write = 1;
         AluControl = "storei";
-        mem_read = 0;
         mem_wr = 1;
-        Alu_OP = 0;
         Alusrc = 1;
-        MemtoReg = 0;
-        Branch = 0;
-        Jump = 0;
     }
     else if (opcode == "00011010")
     {
@@ -267,7 +260,7 @@ void Controle ::alterarSinais(string opcode)
         Alusrc = 1;
     }
     else if (opcode == "00011100")
-    { // subi b.28
+    {
         reg_write = 1;
         AluControl = "nand";
         Alusrc = 10;
@@ -291,7 +284,7 @@ void Controle ::alterarSinais(string opcode)
 void Controle::depuracao_controle()
 {
 
-    cout << "Valores dos sinais de controle: " << endl;
+    cout << "VALORES DOS SINAIS DE CONTROLE: " << endl;
     cout << "________________________________" << endl; // 32 tamanho
     cout << "| reg_dst: " << reg_dst << " ||||||";
     cout << " reg_write: " << reg_write << " |" << endl;

@@ -62,8 +62,7 @@ long conversorBinInteiro(bitset<32> bin)
 
 #include "Conversor.hpp"
 #include "Registradores.hpp"
-#include "If.hpp"
-#include "Id.hpp"
+#include "If-Id.hpp"
 #include "ExMem.hpp"
 #include "Wb.hpp"
 
@@ -153,11 +152,11 @@ void Processador::executar()
             delete exMemStage;
             delete wbStage;
 
-            cout << endl
-                 << " ------------------------------ Instrucao Finalizada --------------------------------------------" << endl
-                 << endl;
-
+            cout << endl;
             cout << "Número de clocks " << quant_clock << endl;
+
+            cout << " ------------------------------ Instrucao Finalizada --------------------------------------------" << endl
+                 << endl;
 
             cout << "Pressione ENTER para a próxima instrução . . . ";
             cin.get();
