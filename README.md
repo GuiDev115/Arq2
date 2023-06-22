@@ -1,3 +1,3 @@
-# Trab_Arq_II
+# **Trabalho de Arquitetura II - UFLA-RISC**
 
-GCC123 - Arquitetura de Computadores II
+## **GCC123 - Arquitetura de Computadores II**
