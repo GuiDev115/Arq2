@@ -42,7 +42,7 @@ void Conversor::leituraArquivoEntrada()
     cout << "Digite o nome do arquivo de texto: ";
     cin >> nome_arquivo_entrada;
 
-    ifstream arquivo_entrada("textos/" + nome_arquivo_entrada);
+    ifstream arquivo_entrada("../examples/" + nome_arquivo_entrada);
 
     if (arquivo_entrada)
     {
